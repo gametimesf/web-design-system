@@ -20,6 +20,7 @@ import Layout from '../../layouts/Layout.astro';
     <div class="collection-grid">
       <article class="collection-card">
         <div class="collection-image">
+          <img src="https://placehold.co/400x300" alt="" />
           <button class="favorite-btn" type="button" aria-label="Save event">
             <svg
               width="24"
@@ -48,6 +49,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <article class="collection-card">
         <div class="collection-image">
+          <img src="https://placehold.co/400x300" alt="" />
           <button class="favorite-btn" type="button" aria-label="Save event">
             <svg
               width="24"
@@ -77,6 +79,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <article class="collection-card">
         <div class="collection-image">
+          <img src="https://placehold.co/400x300" alt="" />
           <button class="favorite-btn" type="button" aria-label="Save event">
             <svg
               width="24"
@@ -115,6 +118,7 @@ import Layout from '../../layouts/Layout.astro';
     <div class="collection-grid performer-grid">
       <article class="collection-card">
         <div class="collection-image performer-image">
+          <img src="https://placehold.co/300x300" alt="" />
           <button class="favorite-btn" type="button" aria-label="Save artist">
             <svg
               width="24"
@@ -143,6 +147,7 @@ import Layout from '../../layouts/Layout.astro';
 
       <article class="collection-card">
         <div class="collection-image performer-image">
+          <img src="https://placehold.co/300x300" alt="" />
           <button class="favorite-btn" type="button" aria-label="Save artist">
             <svg
               width="24"
@@ -185,7 +190,7 @@ import Layout from '../../layouts/Layout.astro';
           <p>Handpicked events this week from iconic venues across the city.</p>
           <button type="button">GET TICKETS</button>
         </div>
-        <div class="cms-image" aria-hidden="true"></div>
+        <img src="https://placehold.co/300x230" alt="" class="cms-image" />
       </article>
 
       <article class="cms-card cms-dark">
@@ -195,7 +200,7 @@ import Layout from '../../layouts/Layout.astro';
           <p>Big tours, premium views, and last-minute drops in your market.</p>
           <button type="button">GET TICKETS</button>
         </div>
-        <div class="cms-image" aria-hidden="true"></div>
+        <img src="https://placehold.co/300x230" alt="" class="cms-image" />
       </article>
     </div>
   </section>
@@ -237,7 +242,7 @@ import Layout from '../../layouts/Layout.astro';
     <div class="login-grid">
       <article class="login-card dark-login">
         <button class="login-close" type="button" aria-label="Dismiss login">✕</button>
-        <div class="login-hero" aria-hidden="true"></div>
+        <img src="https://placehold.co/400x160" alt="" class="login-hero" />
         <div class="login-content">
           <h3>Welcome Back</h3>
           <p>Log in to track prices, save favorites, and checkout faster.</p>
@@ -337,6 +342,16 @@ import Layout from '../../layouts/Layout.astro';
 
   .performer-image {
     background: linear-gradient(140deg, var(--color-blue-800), var(--color-blue-1000));
+  }
+
+  .collection-image img,
+  .performer-image img,
+  .cms-image,
+  .login-hero {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
   }
 
   .favorite-btn {
