@@ -1,0 +1,1028 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Atoms | Gametime Design System"
+  description="Atomic component documentation for buttons, fields, controls, labels, feedback, and status UI."
+>
+  <header class="page-header">
+    <h1>Atoms</h1>
+    <p>
+      Foundational UI building blocks with common variants and states. All examples use shared design
+      tokens.
+    </p>
+  </header>
+
+  <div class="atoms-grid">
+    <section class="atom-card" aria-labelledby="button-title">
+      <div class="atom-head">
+        <h2 id="button-title">Button</h2>
+        <p>Primary, secondary, tertiary, disabled, and size variants with hover behavior.</p>
+      </div>
+      <div class="preview-grid preview-grid-3">
+        <button class="demo-btn btn-primary btn-sm" type="button">Primary small</button>
+        <button class="demo-btn btn-primary" type="button">Primary medium</button>
+        <button class="demo-btn btn-primary btn-lg" type="button">Primary large</button>
+
+        <button class="demo-btn btn-secondary btn-sm" type="button">Secondary small</button>
+        <button class="demo-btn btn-secondary" type="button">Secondary medium</button>
+        <button class="demo-btn btn-secondary btn-lg" type="button">Secondary large</button>
+
+        <button class="demo-btn btn-tertiary btn-sm" type="button">Tertiary small</button>
+        <button class="demo-btn btn-tertiary" type="button">Tertiary medium</button>
+        <button class="demo-btn btn-tertiary btn-lg" type="button">Tertiary large</button>
+
+        <button class="demo-btn btn-primary btn-sm" type="button" disabled>Disabled</button>
+        <button class="demo-btn btn-secondary" type="button" disabled>Disabled</button>
+        <button class="demo-btn btn-tertiary btn-lg" type="button" disabled>Disabled</button>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="icon-button-title">
+      <div class="atom-head">
+        <h2 id="icon-button-title">IconButton</h2>
+        <p>Circular icon-only buttons with primary, secondary, tertiary, and disabled variants.</p>
+      </div>
+      <div class="preview-row">
+        <button class="icon-btn icon-btn-primary" type="button" aria-label="Go forward">→</button>
+        <button class="icon-btn icon-btn-secondary" type="button" aria-label="Close">✕</button>
+        <button class="icon-btn icon-btn-tertiary" type="button" aria-label="More">＋</button>
+        <button class="icon-btn icon-btn-primary" type="button" disabled aria-label="Disabled">
+          →
+        </button>
+      </div>
+
+      <div class="subsection">
+        <div class="subsection-head">
+          <h3>FavoriteButton</h3>
+          <p>Overlay heart button with unfilled and filled states on a media card.</p>
+        </div>
+        <div class="favorite-demo">
+          <div class="favorite-card" role="presentation">
+            <img
+              src="https://placehold.co/320x220/png"
+              alt=""
+              class="favorite-image"
+              loading="lazy"
+              decoding="async"
+            />
+            <div class="favorite-actions">
+              <button class="favorite-btn" type="button" aria-label="Add to favorites">
+                <svg
+                  class="favorite-icon outline"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                  />
+                </svg>
+              </button>
+              <button class="favorite-btn is-filled" type="button" aria-label="Remove from favorites">
+                <svg
+                  class="favorite-icon filled"
+                  viewBox="0 0 16 16"
+                  width="16"
+                  height="16"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M10.9997 2.33331C12.044 2.33331 12.9162 2.67627 13.6162 3.3628C14.3162 4.04946 14.6663 4.90557 14.6663 5.93012C14.6663 5.98326 14.6644 6.03624 14.6624 6.08914L14.6663 6.09936L14.6624 6.10638C14.6446 6.5465 14.5598 6.97839 14.4079 7.40154C14.2356 7.88104 13.9329 8.40686 13.4997 8.97898C13.0663 9.55119 12.483 10.1972 11.7497 10.9166C11.0164 11.6359 10.0886 12.4915 8.96647 13.4833L7.99967 14.3333L7.03288 13.4833C5.91072 12.4915 4.98299 11.6359 4.24967 10.9166C3.51634 10.1972 2.93301 9.55119 2.49967 8.97898C2.06642 8.40686 1.76371 7.88104 1.59147 7.40154C1.41928 6.92204 1.33304 6.43141 1.33301 5.93012C1.33301 4.90557 1.68314 4.04946 2.38314 3.3628C3.0831 2.67627 3.95533 2.33331 4.99967 2.33331C5.57739 2.33331 6.12724 2.45313 6.64941 2.69287C7.17163 2.93265 7.6219 3.27041 7.99967 3.70638C8.37745 3.27041 8.82772 2.93265 9.34994 2.69287C9.87211 2.45313 10.422 2.33331 10.9997 2.33331Z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="input-title">
+      <div class="atom-head">
+        <h2 id="input-title">Input</h2>
+        <p>Text field states for default, focused, error, and disabled with labels.</p>
+      </div>
+      <div class="preview-grid preview-grid-2">
+        <label class="field-wrap">
+          <span class="field-label">Default</span>
+          <input class="demo-input" type="text" value="General admission" />
+        </label>
+
+        <label class="field-wrap">
+          <span class="field-label">Focused</span>
+          <input class="demo-input is-focused" type="text" value="Focused value" />
+        </label>
+
+        <label class="field-wrap">
+          <span class="field-label">Error</span>
+          <input class="demo-input is-error" type="text" value="Invalid value" />
+          <span class="field-message">Please enter a valid value.</span>
+        </label>
+
+        <label class="field-wrap">
+          <span class="field-label">Disabled</span>
+          <input class="demo-input" type="text" value="Disabled input" disabled />
+        </label>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="checkbox-title">
+      <div class="atom-head">
+        <h2 id="checkbox-title">Checkbox</h2>
+        <p>Custom checkbox control for unchecked, checked, indeterminate, and disabled states.</p>
+      </div>
+      <div class="preview-row controls-wrap">
+        <label class="check-control">
+          <input type="checkbox" />
+          <span class="check-mark" aria-hidden="true"></span>
+          <span>Unchecked</span>
+        </label>
+
+        <label class="check-control">
+          <input type="checkbox" checked />
+          <span class="check-mark" aria-hidden="true"></span>
+          <span>Checked</span>
+        </label>
+
+        <label class="check-control">
+          <input type="checkbox" checked class="is-indeterminate" />
+          <span class="check-mark" aria-hidden="true"></span>
+          <span>Indeterminate</span>
+        </label>
+
+        <label class="check-control is-disabled">
+          <input type="checkbox" disabled />
+          <span class="check-mark" aria-hidden="true"></span>
+          <span>Disabled</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="radio-title">
+      <div class="atom-head">
+        <h2 id="radio-title">Radio</h2>
+        <p>Single-choice control with group presentation and checked/unchecked states.</p>
+      </div>
+      <div class="preview-row controls-wrap" role="radiogroup" aria-label="Delivery options">
+        <label class="radio-control">
+          <input type="radio" name="delivery" />
+          <span class="radio-mark" aria-hidden="true"></span>
+          <span>Standard</span>
+        </label>
+
+        <label class="radio-control">
+          <input type="radio" name="delivery" checked />
+          <span class="radio-mark" aria-hidden="true"></span>
+          <span>Express</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="switch-title">
+      <div class="atom-head">
+        <h2 id="switch-title">Switch</h2>
+        <p>Toggle control in off and on states with animated thumb movement.</p>
+      </div>
+      <div class="preview-row controls-wrap">
+        <label class="switch-control">
+          <input type="checkbox" />
+          <span class="switch-track" aria-hidden="true"></span>
+          <span>Off</span>
+        </label>
+
+        <label class="switch-control">
+          <input type="checkbox" checked />
+          <span class="switch-track" aria-hidden="true"></span>
+          <span>On</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="link-title">
+      <div class="atom-head">
+        <h2 id="link-title">Link</h2>
+        <p>Text links showing default, visited, hover, and inline usage.</p>
+      </div>
+      <div class="preview-row link-row">
+        <a class="demo-link" href="#">Default link</a>
+        <a class="demo-link is-visited" href="#">Visited link</a>
+        <a class="demo-link is-hover" href="#">Hover link</a>
+        <p class="link-inline">
+          Inline usage with
+          <a class="demo-link" href="#">ticket details</a>
+          and supporting copy.
+        </p>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="tag-title">
+      <div class="atom-head">
+        <h2 id="tag-title">Tag</h2>
+        <p>Compact pill labels for quick status signaling.</p>
+      </div>
+      <div class="preview-row tags-wrap">
+        <span class="demo-tag tag-default">Default</span>
+        <span class="demo-tag tag-success">Success</span>
+        <span class="demo-tag tag-warning">Warning</span>
+        <span class="demo-tag tag-error">Error</span>
+        <span class="demo-tag tag-info">Info</span>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="chip-title">
+      <div class="atom-head">
+        <h2 id="chip-title">Chip</h2>
+        <p>Interactive chips with optional remove action.</p>
+      </div>
+      <div class="preview-row chips-wrap">
+        <button class="demo-chip chip-default" type="button">General</button>
+        <button class="demo-chip chip-success" type="button">Paid</button>
+        <button class="demo-chip chip-warning" type="button">Pending</button>
+        <button class="demo-chip chip-error" type="button">
+          Error
+          <span class="chip-remove" aria-hidden="true">✕</span>
+        </button>
+        <button class="demo-chip chip-info" type="button">
+          New
+          <span class="chip-remove" aria-hidden="true">✕</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="spinner-title">
+      <div class="atom-head">
+        <h2 id="spinner-title">Spinner</h2>
+        <p>CSS-only loading indicators at small, medium, and large sizes.</p>
+      </div>
+      <div class="preview-row spinner-wrap" aria-label="Loading indicators">
+        <span class="spinner spinner-sm" role="status" aria-label="Loading small"></span>
+        <span class="spinner" role="status" aria-label="Loading medium"></span>
+        <span class="spinner spinner-lg" role="status" aria-label="Loading large"></span>
+      </div>
+    </section>
+
+    <section class="atom-card" aria-labelledby="alert-title">
+      <div class="atom-head">
+        <h2 id="alert-title">Alert</h2>
+        <p>Feedback banners for info, success, warning, and error contexts.</p>
+      </div>
+      <div class="alerts-wrap">
+        <article class="demo-alert alert-info" role="status">
+          <span class="alert-icon" aria-hidden="true">i</span>
+          <div>
+            <strong>Info</strong>
+            <p>This is an informational message for the current user flow.</p>
+          </div>
+        </article>
+
+        <article class="demo-alert alert-success" role="status">
+          <span class="alert-icon" aria-hidden="true">✓</span>
+          <div>
+            <strong>Success</strong>
+            <p>Your changes were saved successfully.</p>
+          </div>
+        </article>
+
+        <article class="demo-alert alert-warning" role="status">
+          <span class="alert-icon" aria-hidden="true">!</span>
+          <div>
+            <strong>Warning</strong>
+            <p>Double-check this setting before publishing.</p>
+          </div>
+        </article>
+
+        <article class="demo-alert alert-error" role="alert">
+          <span class="alert-icon" aria-hidden="true">✕</span>
+          <div>
+            <strong>Error</strong>
+            <p>We could not process your request. Try again.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--spacing-08);
+  }
+
+  .page-header h1 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-700);
+    margin-bottom: var(--spacing-03);
+  }
+
+  .page-header p {
+    color: var(--theme-light-text-default-secondary);
+    max-width: 70ch;
+  }
+
+  .atoms-grid {
+    display: grid;
+    gap: var(--spacing-06);
+  }
+
+  .atom-card {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elevation-1);
+    padding: var(--spacing-06);
+    display: grid;
+    gap: var(--spacing-05);
+  }
+
+  .atom-head h2 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-500);
+    margin-bottom: var(--spacing-02);
+  }
+
+  .atom-head p {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-200);
+  }
+
+  .preview-grid {
+    display: grid;
+    gap: var(--spacing-04);
+    align-items: start;
+  }
+
+  .preview-grid-2 {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .preview-grid-3 {
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .preview-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--spacing-04);
+  }
+
+  .demo-btn {
+    border-radius: var(--radius-m);
+    border: 1px solid transparent;
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-200);
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+    cursor: pointer;
+    padding: var(--spacing-03) var(--spacing-05);
+    min-height: 40px;
+  }
+
+  .btn-sm {
+    min-height: 32px;
+    padding: var(--spacing-02) var(--spacing-04);
+    font-size: var(--font-size-100);
+  }
+
+  .btn-lg {
+    min-height: 48px;
+    padding: var(--spacing-04) var(--spacing-06);
+    font-size: var(--font-size-300);
+  }
+
+  .btn-primary {
+    background: var(--theme-light-button-default-primary);
+    color: var(--theme-light-text-button-on-primary);
+  }
+
+  .btn-primary:hover {
+    background: var(--theme-light-button-default-primary-hover);
+    box-shadow: 0 0 0 3px var(--theme-light-border-brand-default);
+  }
+
+  .btn-primary:disabled {
+    background: var(--theme-light-button-default-default-disabled);
+    color: var(--theme-light-text-button-on-primary-disabled);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .btn-secondary {
+    background: var(--theme-light-background-default-primary);
+    border-color: var(--theme-light-border-default-strong);
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .btn-secondary:hover {
+    background: var(--theme-light-background-default-secondary);
+    border-color: var(--theme-light-border-default-secondary);
+  }
+
+  .btn-secondary:disabled {
+    border-color: var(--theme-light-border-default-tertiary);
+    color: var(--theme-light-text-button-on-secondary-disabled);
+    cursor: not-allowed;
+  }
+
+  .btn-tertiary {
+    background: transparent;
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .btn-tertiary:hover {
+    background: var(--theme-light-background-default-primary-hover);
+  }
+
+  .btn-tertiary:disabled {
+    color: var(--theme-light-text-button-on-tertiary-disabled);
+    cursor: not-allowed;
+  }
+
+  .icon-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-round);
+    border: 1px solid transparent;
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    display: inline-grid;
+    place-items: center;
+    cursor: pointer;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .icon-btn:hover {
+    transform: translateY(-1px);
+  }
+
+  .icon-btn-primary {
+    background: var(--theme-light-button-default-primary);
+    color: var(--theme-light-icon-default-on-color);
+  }
+
+  .icon-btn-primary:hover {
+    background: var(--theme-light-button-default-primary-hover);
+  }
+
+  .icon-btn-secondary {
+    background: var(--theme-light-background-default-primary);
+    border-color: var(--theme-light-border-default-primary);
+    color: var(--theme-light-icon-default-primary);
+  }
+
+  .icon-btn-secondary:hover {
+    background: var(--theme-light-background-default-secondary);
+  }
+
+  .icon-btn-tertiary {
+    background: transparent;
+    color: var(--theme-light-icon-default-secondary);
+  }
+
+  .icon-btn-tertiary:hover {
+    background: var(--theme-light-background-default-primary-hover);
+  }
+
+  .icon-btn:disabled {
+    background: var(--theme-light-background-default-secondary);
+    border-color: var(--theme-light-border-default-subtle);
+    color: var(--theme-light-icon-default-on-button-secondary-disabled);
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .subsection {
+    display: grid;
+    gap: var(--spacing-03);
+  }
+
+  .subsection-head h3 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-300);
+    margin-bottom: var(--spacing-01);
+  }
+
+  .subsection-head p {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-200);
+  }
+
+  .favorite-demo {
+    background: var(--color-brand-gray-900);
+    border-radius: var(--radius-l);
+    padding: var(--spacing-05);
+  }
+
+  .favorite-card {
+    position: relative;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    background: var(--color-brand-gray-800);
+    max-width: 360px;
+  }
+
+  .favorite-image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .favorite-actions {
+    position: absolute;
+    top: var(--spacing-04);
+    right: var(--spacing-04);
+    display: flex;
+    gap: var(--spacing-02);
+  }
+
+  .favorite-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-round);
+    border: 1px solid var(--color-white-200);
+    background: var(--color-black-600);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .favorite-btn:hover {
+    transform: translateY(-1px);
+    background: var(--color-black-700);
+  }
+
+  .favorite-btn.is-filled {
+    background: var(--color-white-900);
+    border-color: var(--color-white-800);
+  }
+
+  .favorite-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .favorite-icon.outline {
+    fill: none;
+    stroke: var(--color-white-1000);
+    stroke-width: 1.2px;
+  }
+
+  .favorite-icon.filled {
+    fill: var(--color-red-500);
+  }
+
+  .field-wrap {
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .field-label {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .demo-input {
+    width: 100%;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--theme-light-border-default-secondary);
+    background: var(--theme-light-background-default-primary);
+    color: var(--theme-light-text-default-primary);
+    padding: var(--spacing-03) var(--spacing-04);
+    transition:
+      border-color var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+  }
+
+  .demo-input::placeholder {
+    color: var(--theme-light-text-default-placeholder);
+  }
+
+  .demo-input:focus,
+  .demo-input.is-focused {
+    border-color: var(--theme-light-border-brand-default);
+    box-shadow: 0 0 0 3px var(--color-brand-green-100);
+    outline: none;
+  }
+
+  .demo-input.is-error {
+    border-color: var(--theme-light-border-danger-tertiary);
+  }
+
+  .field-message {
+    color: var(--theme-light-text-danger-primary);
+    font-size: var(--font-size-100);
+  }
+
+  .demo-input:disabled {
+    background: var(--theme-light-background-default-negative);
+    border-color: var(--theme-light-border-default-subtle);
+    color: var(--theme-light-text-default-tertiary);
+    cursor: not-allowed;
+  }
+
+  .controls-wrap {
+    column-gap: var(--spacing-06);
+    row-gap: var(--spacing-03);
+  }
+
+  .check-control,
+  .radio-control,
+  .switch-control {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-03);
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-200);
+  }
+
+  .check-control input,
+  .radio-control input,
+  .switch-control input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .check-mark {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-xs);
+    border: 1px solid var(--theme-light-border-default-tertiary);
+    background: var(--theme-light-background-default-primary);
+    display: inline-grid;
+    place-items: center;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .check-mark::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    clip-path: polygon(14% 44%, 0 59%, 41% 100%, 100% 21%, 84% 8%, 39% 69%);
+  }
+
+  .check-control input:checked + .check-mark {
+    background: var(--theme-light-button-default-primary);
+    border-color: var(--theme-light-button-default-primary);
+  }
+
+  .check-control input:checked + .check-mark::after {
+    background: var(--theme-light-icon-default-on-color);
+  }
+
+  .check-control input.is-indeterminate + .check-mark::after {
+    clip-path: none;
+    width: 10px;
+    height: 2px;
+    border-radius: var(--radius-pill);
+    background: var(--theme-light-icon-default-on-color);
+  }
+
+  .check-control.is-disabled {
+    color: var(--theme-light-text-default-tertiary);
+  }
+
+  .check-control input:disabled + .check-mark {
+    background: var(--theme-light-background-default-negative);
+    border-color: var(--theme-light-border-default-subtle);
+  }
+
+  .radio-mark {
+    width: 20px;
+    height: 20px;
+    border-radius: var(--radius-round);
+    border: 1px solid var(--theme-light-border-default-tertiary);
+    background: var(--theme-light-background-default-primary);
+    display: inline-grid;
+    place-items: center;
+    transition:
+      border-color var(--duration-fast) var(--ease-standard),
+      background-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .radio-mark::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: var(--radius-round);
+    background: transparent;
+  }
+
+  .radio-control input:checked + .radio-mark {
+    border-color: var(--theme-light-button-default-primary);
+    background: var(--theme-light-background-brand-primary);
+  }
+
+  .radio-control input:checked + .radio-mark::after {
+    background: var(--theme-light-button-default-primary);
+  }
+
+  .switch-track {
+    width: 44px;
+    height: 24px;
+    border-radius: var(--radius-pill);
+    background: var(--theme-light-background-default-tertiary);
+    border: 1px solid var(--theme-light-border-default-secondary);
+    display: inline-flex;
+    align-items: center;
+    padding: 2px;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .switch-track::after {
+    content: '';
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-round);
+    background: var(--theme-light-background-default-primary);
+    box-shadow: var(--elevation-1);
+    transform: translateX(0);
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .switch-control:hover .switch-track,
+  .switch-control input:focus + .switch-track {
+    border-color: var(--theme-light-border-brand-default);
+  }
+
+  .switch-control input:checked + .switch-track {
+    background: var(--theme-light-button-default-primary);
+    border-color: var(--theme-light-button-default-primary);
+  }
+
+  .switch-control input:checked + .switch-track::after {
+    transform: translateX(20px);
+  }
+
+  .link-row {
+    align-items: flex-start;
+  }
+
+  .demo-link {
+    color: var(--theme-light-text-link-primary);
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    font-weight: var(--font-weight-semibold);
+    transition: color var(--duration-fast) var(--ease-standard);
+  }
+
+  .demo-link:hover,
+  .demo-link.is-hover {
+    color: var(--theme-light-text-link-hover);
+  }
+
+  .demo-link.is-visited {
+    color: var(--theme-light-text-link-visited);
+  }
+
+  .link-inline {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-200);
+    max-width: 320px;
+  }
+
+  .tags-wrap,
+  .chips-wrap {
+    row-gap: var(--spacing-03);
+  }
+
+  .demo-tag {
+    display: inline-flex;
+    align-items: center;
+    border-radius: var(--radius-pill);
+    padding: var(--spacing-01) var(--spacing-03);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    border: 1px solid transparent;
+  }
+
+  .tag-default {
+    background: var(--theme-light-background-default-secondary);
+    color: var(--theme-light-text-default-secondary);
+    border-color: var(--theme-light-border-default-subtle);
+  }
+
+  .tag-success {
+    background: var(--theme-light-background-brand-primary);
+    color: var(--theme-light-text-brand-strong);
+    border-color: var(--theme-light-border-brand-default);
+  }
+
+  .tag-warning {
+    background: var(--theme-light-background-warning-secondary);
+    color: var(--theme-light-text-warning-secondary);
+    border-color: var(--theme-light-border-warning-primary);
+  }
+
+  .tag-error {
+    background: var(--theme-light-background-danger-primary);
+    color: var(--theme-light-text-danger-secondary);
+    border-color: var(--theme-light-border-danger-secondary);
+  }
+
+  .tag-info {
+    background: var(--color-blue-100);
+    color: var(--color-blue-800);
+    border-color: var(--color-blue-300);
+  }
+
+  .demo-chip {
+    border-radius: var(--radius-pill);
+    border: 1px solid transparent;
+    padding: var(--spacing-02) var(--spacing-04);
+    min-height: 34px;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-medium);
+    cursor: pointer;
+    transition:
+      background-color var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .demo-chip:hover {
+    border-color: var(--theme-light-border-default-secondary);
+  }
+
+  .chip-remove {
+    width: 18px;
+    height: 18px;
+    border-radius: var(--radius-round);
+    background: var(--color-white-300);
+    display: inline-grid;
+    place-items: center;
+    font-size: var(--font-size-100);
+    line-height: 1;
+  }
+
+  .chip-default {
+    background: var(--theme-light-background-default-secondary);
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .chip-success {
+    background: var(--theme-light-background-brand-secondary);
+    color: var(--theme-light-text-brand-strong);
+  }
+
+  .chip-warning {
+    background: var(--theme-light-background-warning-tertiary);
+    color: var(--theme-light-text-warning-secondary);
+  }
+
+  .chip-error {
+    background: var(--theme-light-background-danger-secondary);
+    color: var(--theme-light-text-danger-secondary);
+  }
+
+  .chip-info {
+    background: var(--color-blue-200);
+    color: var(--color-blue-900);
+  }
+
+  .spinner-wrap {
+    gap: var(--spacing-05);
+  }
+
+  .spinner {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-round);
+    border: 3px solid var(--theme-light-border-default-subtle);
+    border-top-color: var(--theme-light-icon-brand-primary);
+    animation: spin var(--duration-slow) linear infinite;
+  }
+
+  .spinner-sm {
+    width: 16px;
+    height: 16px;
+    border-width: 2px;
+  }
+
+  .spinner-lg {
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
+  }
+
+  .alerts-wrap {
+    display: grid;
+    gap: var(--spacing-03);
+  }
+
+  .demo-alert {
+    border-radius: var(--radius-m);
+    border: 1px solid transparent;
+    padding: var(--spacing-04);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--spacing-03);
+    align-items: start;
+  }
+
+  .alert-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-round);
+    display: grid;
+    place-items: center;
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-bold);
+    line-height: 1;
+  }
+
+  .demo-alert strong {
+    display: block;
+    margin-bottom: var(--spacing-01);
+    font-size: var(--font-size-200);
+  }
+
+  .demo-alert p {
+    color: inherit;
+    font-size: var(--font-size-200);
+  }
+
+  .alert-info {
+    background: var(--color-blue-050);
+    border-color: var(--color-blue-200);
+    color: var(--color-blue-900);
+  }
+
+  .alert-info .alert-icon {
+    background: var(--color-blue-200);
+    color: var(--color-blue-900);
+  }
+
+  .alert-success {
+    background: var(--theme-light-background-brand-primary);
+    border-color: var(--theme-light-border-brand-default);
+    color: var(--theme-light-text-brand-strong);
+  }
+
+  .alert-success .alert-icon {
+    background: var(--theme-light-background-brand-secondary);
+    color: var(--theme-light-text-brand-strong);
+  }
+
+  .alert-warning {
+    background: var(--theme-light-background-warning-primary);
+    border-color: var(--theme-light-border-warning-primary);
+    color: var(--theme-light-text-warning-primary);
+  }
+
+  .alert-warning .alert-icon {
+    background: var(--theme-light-background-warning-tertiary);
+    color: var(--theme-light-text-warning-primary);
+  }
+
+  .alert-error {
+    background: var(--theme-light-background-danger-primary);
+    border-color: var(--theme-light-border-danger-secondary);
+    color: var(--theme-light-text-danger-secondary);
+  }
+
+  .alert-error .alert-icon {
+    background: var(--theme-light-background-danger-tertiary);
+    color: var(--theme-light-text-default-on-color);
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 760px) {
+    .atom-card {
+      padding: var(--spacing-05);
+    }
+
+    .preview-grid-3,
+    .preview-grid-2 {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,395 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const events = [
+  {
+    date: '3/19',
+    day: 'Tmrw',
+    title: 'Detroit Pistons at Washington Wizards',
+    meta: '7:00 PM · Capital One Arena · Washington, DC',
+    badge: 'zone',
+    price: 'FROM $17+',
+  },
+  {
+    date: '3/22',
+    day: 'Fri',
+    title: 'New York Knicks at Brooklyn Nets',
+    meta: '7:30 PM · Barclays Center · Brooklyn, NY',
+    badge: 'deals',
+    price: 'FROM $29+',
+  },
+  {
+    date: '3/24',
+    day: 'Sun',
+    title: 'Boston Celtics at New York Knicks',
+    meta: '1:00 PM · Madison Square Garden · New York, NY',
+    badge: null,
+    price: 'FROM $58+',
+  },
+  {
+    date: '3/27',
+    day: 'Wed',
+    title: 'Philadelphia 76ers at Toronto Raptors',
+    meta: '7:30 PM · Scotiabank Arena · Toronto, ON',
+    badge: 'zone',
+    price: 'FROM $21+',
+  },
+  {
+    date: '3/30',
+    day: 'Sat',
+    title: 'Miami Heat at Orlando Magic',
+    meta: '8:00 PM · Kia Center · Orlando, FL',
+    badge: 'deals',
+    price: 'FROM $19+',
+  },
+  {
+    date: '4/02',
+    day: 'Tue',
+    title: 'Chicago Bulls at Cleveland Cavaliers',
+    meta: '7:00 PM · Rocket Mortgage FieldHouse · Cleveland, OH',
+    badge: null,
+    price: 'FROM $14+',
+  },
+  {
+    date: '4/05',
+    day: 'Fri',
+    title: 'Los Angeles Lakers at New York Knicks',
+    meta: '7:30 PM · Madison Square Garden · New York, NY',
+    badge: 'zone',
+    price: 'FROM $74+',
+  },
+];
+---
+
+<Layout title="Event Listings | Gametime Design System" description="Event listing row pattern used on performer and team pages.">
+  <section class="page">
+    <header class="page-header">
+      <p class="eyebrow">Components</p>
+      <h1>Event Listings</h1>
+      <p class="lede">
+        Event listing rows pair a compact date column with event details and a price call-to-action.
+        The pattern is used on performer and team pages.
+      </p>
+    </header>
+
+    <section class="preview">
+      <div class="filters" aria-label="Event filters">
+        <button class="filter-pill" type="button">No Events near New York City <span class="caret">▼</span></button>
+        <button class="filter-pill" type="button">Home &amp; Away <span class="caret">▼</span></button>
+        <button class="filter-pill" type="button">All Dates <span class="caret">▼</span></button>
+      </div>
+
+      <div class="event-list" role="list">
+        {events.map((event) => (
+          <article class="event-row" role="listitem">
+            <div class="event-date">
+              <span class="date-number">{event.date}</span>
+              <span class="date-day">{event.day}</span>
+            </div>
+
+            <div class="event-details">
+              <h3>{event.title}</h3>
+              <p class="event-meta">{event.meta}</p>
+              {event.badge === 'zone' && (
+                <span class="deal-badge zone">
+                  <span class="badge-icon">★</span>
+                  ZONE DEALS
+                </span>
+              )}
+              {event.badge === 'deals' && (
+                <span class="deal-badge deals">
+                  <span class="badge-icon gt">GT</span>
+                  DEALS AVAILABLE
+                </span>
+              )}
+            </div>
+
+            <div class="event-price">
+              <button class="price-button" type="button">{event.price}</button>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <button class="show-more" type="button">
+        Show More
+        <span class="chevron">▾</span>
+      </button>
+    </section>
+
+    <section class="badge-showcase">
+      <div class="badge-text">
+        <h2>Last Call Badge</h2>
+        <p>
+          Last Call appears as an overlay on collection cards to highlight limited inventory.
+        </p>
+      </div>
+      <div class="collection-card" aria-label="Collection card preview">
+        <span class="deal-badge last-call">⏱ LAST CALL</span>
+        <div class="card-body">
+          <p class="card-title">NBA Road Trips</p>
+          <p class="card-subtitle">Curated bundles · 12 events</p>
+        </div>
+      </div>
+    </section>
+  </section>
+</Layout>
+
+<style>
+  .page {
+    display: grid;
+    gap: var(--spacing-10);
+    max-width: 980px;
+  }
+
+  .page-header {
+    display: grid;
+    gap: var(--spacing-04);
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-500);
+  }
+
+  .lede {
+    font-size: var(--font-size-300);
+    color: var(--color-brand-gray-600);
+    max-width: 640px;
+  }
+
+  .preview {
+    display: grid;
+    gap: var(--spacing-06);
+    padding: var(--spacing-07);
+    background: var(--color-brand-gray-900);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elevation-2);
+  }
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-03);
+  }
+
+  .filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    padding: var(--spacing-02) var(--spacing-04);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-brand-gray-700);
+    background: var(--color-brand-gray-800);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-medium);
+    transition: border-color var(--duration-fast) var(--ease-standard),
+      background var(--duration-fast) var(--ease-standard);
+  }
+
+  .filter-pill:hover {
+    background: var(--color-brand-gray-700);
+    border-color: var(--color-brand-gray-600);
+  }
+
+  .caret {
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-100);
+  }
+
+  .event-list {
+    display: grid;
+  }
+
+  .event-row {
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    gap: var(--spacing-05);
+    align-items: center;
+    padding: var(--spacing-05) 0;
+    border-bottom: 1px solid var(--color-brand-gray-800);
+  }
+
+  .event-row:last-child {
+    border-bottom: none;
+  }
+
+  .event-date {
+    display: grid;
+    justify-items: center;
+    gap: var(--spacing-01);
+    color: var(--color-white-1000);
+  }
+
+  .date-number {
+    font-size: var(--font-size-600);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .date-day {
+    font-size: var(--font-size-200);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-brand-gray-300);
+  }
+
+  .event-details {
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .event-details h3 {
+    color: var(--color-white-1000);
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .event-meta {
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-200);
+  }
+
+  .deal-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    padding: var(--spacing-01) var(--spacing-03);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+
+  .deal-badge .badge-icon {
+    font-size: var(--font-size-100);
+  }
+
+  .deal-badge.zone {
+    background: var(--color-purple-700);
+    color: var(--color-white-1000);
+  }
+
+  .deal-badge.deals {
+    background: var(--color-brand-green-700);
+    color: var(--color-white-1000);
+  }
+
+  .deal-badge.last-call {
+    background: var(--color-teal-700);
+    color: var(--color-white-1000);
+  }
+
+  .badge-icon.gt {
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: var(--color-brand-gray-900);
+    color: var(--color-white-1000);
+    font-size: 10px;
+    font-weight: var(--font-weight-bold);
+  }
+
+  .event-price {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .price-button {
+    border: none;
+    padding: var(--spacing-03) var(--spacing-05);
+    border-radius: var(--radius-full);
+    background: var(--color-brand-green-500);
+    color: var(--color-setlist-black-1000);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.04em;
+  }
+
+  .show-more {
+    width: 100%;
+    border-radius: var(--radius-full);
+    padding: var(--spacing-03) var(--spacing-05);
+    background: var(--color-brand-gray-800);
+    border: 1px solid var(--color-brand-gray-700);
+    color: var(--color-white-1000);
+    font-weight: var(--font-weight-semibold);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-02);
+  }
+
+  .chevron {
+    font-size: var(--font-size-200);
+    color: var(--color-brand-gray-300);
+  }
+
+  .badge-showcase {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
+    gap: var(--spacing-07);
+    align-items: center;
+  }
+
+  .badge-showcase h2 {
+    font-size: var(--font-size-500);
+  }
+
+  .badge-showcase p {
+    color: var(--color-brand-gray-600);
+  }
+
+  .collection-card {
+    position: relative;
+    border-radius: var(--radius-l);
+    padding: var(--spacing-06);
+    background: linear-gradient(
+      140deg,
+      var(--color-brand-gray-900),
+      var(--color-brand-gray-700)
+    );
+    border: 1px solid var(--color-brand-gray-700);
+    min-height: 160px;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .collection-card .deal-badge {
+    position: absolute;
+    top: var(--spacing-04);
+    left: var(--spacing-04);
+  }
+
+  .card-title {
+    font-size: var(--font-size-400);
+    color: var(--color-white-1000);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .card-subtitle {
+    font-size: var(--font-size-200);
+    color: var(--color-brand-gray-300);
+  }
+
+  @media (max-width: 720px) {
+    .event-row {
+      grid-template-columns: 72px 1fr;
+      grid-template-rows: auto auto;
+    }
+
+    .event-price {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+    }
+
+    .badge-showcase {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

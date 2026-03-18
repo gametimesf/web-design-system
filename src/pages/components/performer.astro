@@ -1,0 +1,542 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Performer & Teams | Gametime Design System" description="PerformerChip and MetroPill component documentation.">
+  <div class="page">
+    <header class="page-header">
+      <p class="eyebrow">Components</p>
+      <h1>Performer & Teams</h1>
+      <p class="lead">
+        PerformerChip and MetroPill are used to surface artists, teams, and metros across
+        discovery experiences. The component styles below mirror their production usage in
+        carousels, teams-nearby, and location selectors.
+      </p>
+    </header>
+
+    <section class="doc-section" id="performer-chip">
+      <div class="section-head">
+        <h2>1. PerformerChip (default)</h2>
+        <p>
+          Vertical card used in Top Artists and similar carousels. Icons are circular, with
+          emoji or team logos set on a solid background.
+        </p>
+      </div>
+      <div class="example-grid performer-grid">
+        <article class="performer-chip-card">
+          <div class="performer-chip-icon bg-blue">
+            <span class="emoji" aria-hidden="true">🏀</span>
+          </div>
+          <div class="performer-chip-text">
+            <span class="performer-name">Brooklyn Nets</span>
+            <span class="performer-meta">24 Events</span>
+          </div>
+        </article>
+        <article class="performer-chip-card">
+          <div class="performer-chip-icon bg-orange">
+            <span class="emoji" aria-hidden="true">🏀</span>
+          </div>
+          <div class="performer-chip-text">
+            <span class="performer-name">New York Knicks</span>
+            <span class="performer-meta">31 Events</span>
+          </div>
+        </article>
+        <article class="performer-chip-card">
+          <div class="performer-chip-icon bg-purple">
+            <span class="emoji" aria-hidden="true">🎤</span>
+          </div>
+          <div class="performer-chip-text">
+            <span class="performer-name">Lady Gaga</span>
+            <span class="performer-meta">12 Events</span>
+          </div>
+        </article>
+        <article class="performer-chip-card">
+          <div class="performer-chip-icon bg-dark">
+            <span class="emoji" aria-hidden="true">⭐</span>
+          </div>
+          <div class="performer-chip-text">
+            <span class="performer-name">BTS</span>
+            <span class="performer-meta">9 Events</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="doc-section" id="teams-nearby">
+      <div class="section-head">
+        <h2>2. Teams Nearby layout</h2>
+        <p>
+          PerformerChip in the Teams Nearby carousel. A wide pill layout with the icon on the
+          left and the team name on the right.
+        </p>
+      </div>
+      <div class="example-row teams-row">
+        <div class="teams-pill">
+          <div class="teams-pill-icon bg-blue">
+            <span class="emoji" aria-hidden="true">🏀</span>
+          </div>
+          <span class="teams-pill-name">Brooklyn Nets</span>
+        </div>
+        <div class="teams-pill">
+          <div class="teams-pill-icon bg-teal">
+            <span class="emoji" aria-hidden="true">⚽</span>
+          </div>
+          <span class="teams-pill-name">New York City FC</span>
+        </div>
+        <div class="teams-pill">
+          <div class="teams-pill-icon bg-orange">
+            <span class="emoji" aria-hidden="true">🏀</span>
+          </div>
+          <span class="teams-pill-name">New York Knicks</span>
+        </div>
+        <div class="teams-pill">
+          <div class="teams-pill-icon bg-navy">
+            <span class="emoji" aria-hidden="true">🏒</span>
+          </div>
+          <span class="teams-pill-name">New York Rangers</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="metro-pill">
+      <div class="section-head">
+        <h2>3. MetroPill</h2>
+        <p>
+          Location selector pill. Smaller than PerformerChip with a subtle border and
+          lightweight typography.
+        </p>
+      </div>
+      <div class="example-row metro-row">
+        <div class="metro-pill">New York City</div>
+        <div class="metro-pill">Los Angeles</div>
+        <div class="metro-pill">Chicago</div>
+        <div class="metro-pill">Boston</div>
+        <div class="metro-pill">SF Bay Area</div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="event-pill">
+      <div class="section-head">
+        <h2>4. Event Pill variant</h2>
+        <p>
+          Full-width horizontal layout for event context when <code>isEventPill</code> is true.
+        </p>
+      </div>
+      <div class="event-pill">
+        <div class="event-pill-icon bg-blue">
+          <span class="emoji" aria-hidden="true">🏀</span>
+        </div>
+        <div class="event-pill-text">
+          <span class="event-pill-name">Brooklyn Nets</span>
+          <span class="event-pill-meta">12 Upcoming Events</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="doc-section" id="props">
+      <div class="section-head">
+        <h2>Props</h2>
+        <p>Component props and defaults.</p>
+      </div>
+
+      <div class="table-block">
+        <h3>PerformerChip</h3>
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Prop</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>string</td>
+              <td>Required</td>
+              <td>Performer or team display name.</td>
+            </tr>
+            <tr>
+              <td>color</td>
+              <td>string</td>
+              <td>Gametime green</td>
+              <td>Background color for the icon container.</td>
+            </tr>
+            <tr>
+              <td>eventCount</td>
+              <td>number</td>
+              <td>undefined</td>
+              <td>Optional count shown below the name.</td>
+            </tr>
+            <tr>
+              <td>emoji</td>
+              <td>string</td>
+              <td>undefined</td>
+              <td>Emoji used when no logo is provided.</td>
+            </tr>
+            <tr>
+              <td>logo</td>
+              <td>string</td>
+              <td>undefined</td>
+              <td>Image URL for team or artist logo.</td>
+            </tr>
+            <tr>
+              <td>showPicture</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>Removes icon padding to show the full image.</td>
+            </tr>
+            <tr>
+              <td>isEventPill</td>
+              <td>boolean</td>
+              <td>false</td>
+              <td>Switches to full-width event pill layout.</td>
+            </tr>
+            <tr>
+              <td>onClick</td>
+              <td>() =&gt; void</td>
+              <td>noop</td>
+              <td>Click handler for the chip button.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-block">
+        <h3>MetroPill</h3>
+        <table class="spec-table">
+          <thead>
+            <tr>
+              <th>Prop</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>name</td>
+              <td>string</td>
+              <td>Required</td>
+              <td>Metro name used for title text and tracking.</td>
+            </tr>
+            <tr>
+              <td>displayName</td>
+              <td>string</td>
+              <td>Required</td>
+              <td>Label rendered inside the pill.</td>
+            </tr>
+            <tr>
+              <td>to</td>
+              <td>string</td>
+              <td>Required</td>
+              <td>Navigation destination.</td>
+            </tr>
+            <tr>
+              <td>clickTracker</td>
+              <td>object</td>
+              <td>Required</td>
+              <td>Analytics payload for click tracking.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    display: grid;
+    gap: var(--spacing-10);
+    --border-thin: calc(var(--spacing-01) + var(--spacing--01));
+  }
+
+  .page-header {
+    display: grid;
+    gap: var(--spacing-04);
+    max-width: calc(
+      var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15) +
+        var(--spacing-13)
+    );
+  }
+
+  .eyebrow {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    color: var(--color-brand-gray-500);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  h1 {
+    font-size: var(--font-size-700);
+    color: var(--color-brand-gray-900);
+    margin: 0;
+  }
+
+  .lead {
+    font-size: var(--font-size-300);
+    color: var(--color-brand-gray-600);
+    margin: 0;
+  }
+
+  .doc-section {
+    display: grid;
+    gap: var(--spacing-06);
+  }
+
+  .section-head h2 {
+    margin: 0 0 var(--spacing-02);
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-500);
+  }
+
+  .section-head p {
+    margin: 0;
+    color: var(--color-brand-gray-600);
+    max-width: calc(
+      var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15) +
+        var(--spacing-13)
+    );
+  }
+
+  .example-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc(var(--spacing-15) + var(--spacing-11) + var(--spacing-02)), 1fr)
+    );
+    gap: var(--spacing-06);
+  }
+
+  .performer-grid {
+    align-items: start;
+  }
+
+  .performer-chip-card {
+    width: calc(var(--spacing-15) + var(--spacing-13) + var(--spacing-03));
+    display: grid;
+    gap: var(--spacing-04);
+    padding: var(--spacing-05);
+    border-radius: var(--radius-xl);
+    background: var(--color-brand-gray-900);
+    border: var(--border-thin) solid var(--color-brand-gray-700);
+    box-shadow: var(--elevation-1);
+  }
+
+  .performer-chip-icon {
+    width: calc(var(--spacing-12) + var(--spacing--03) + var(--spacing--01));
+    height: calc(var(--spacing-12) + var(--spacing--03) + var(--spacing--01));
+    border-radius: var(--radius-full);
+    display: grid;
+    place-items: center;
+  }
+
+  .performer-chip-text {
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .performer-name {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-white-1000);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: var(--spacing-09);
+  }
+
+  .performer-meta {
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-brand-gray-300);
+  }
+
+  .example-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-04);
+  }
+
+  .teams-row {
+    padding: var(--spacing-04);
+    background: var(--color-brand-gray-900);
+    border-radius: var(--radius-l);
+    border: var(--border-thin) solid var(--color-brand-gray-700);
+  }
+
+  .teams-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-03);
+    padding: var(--spacing-03) var(--spacing-05) var(--spacing-03) var(--spacing-03);
+    border-radius: var(--radius-full);
+    background: var(--color-brand-gray-800);
+    border: var(--border-thin) solid var(--color-brand-gray-700);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    white-space: nowrap;
+  }
+
+  .teams-pill-icon {
+    width: calc(var(--spacing-09) + var(--spacing-01));
+    height: calc(var(--spacing-09) + var(--spacing-01));
+    border-radius: var(--radius-full);
+    display: grid;
+    place-items: center;
+  }
+
+  .teams-pill-name {
+    color: var(--color-white-1000);
+  }
+
+  .metro-row {
+    align-items: center;
+  }
+
+  .metro-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: var(--spacing-03) var(--spacing-04);
+    border-radius: var(--radius-full);
+    background: var(--color-white-1000);
+    border: var(--border-thin) solid var(--color-brand-gray-200);
+    color: var(--color-brand-gray-700);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .event-pill {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-04);
+    padding: var(--spacing-05);
+    border-radius: var(--radius-xl);
+    background: var(--color-white-1000);
+    border: var(--border-thin) solid var(--color-brand-gray-200);
+    box-shadow: var(--elevation-1);
+  }
+
+  .event-pill-icon {
+    width: var(--spacing-11);
+    height: var(--spacing-11);
+    border-radius: var(--radius-full);
+    display: grid;
+    place-items: center;
+  }
+
+  .event-pill-text {
+    display: grid;
+    gap: var(--spacing-01);
+  }
+
+  .event-pill-name {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-brand-gray-900);
+  }
+
+  .event-pill-meta {
+    font-size: var(--font-size-200);
+    color: var(--color-brand-gray-500);
+  }
+
+  .emoji {
+    font-size: var(--font-size-600);
+    filter: drop-shadow(0 var(--spacing-02) var(--spacing-03) var(--color-black-300));
+  }
+
+  .bg-blue {
+    background: var(--color-blue-500);
+  }
+
+  .bg-orange {
+    background: var(--color-yellow-500);
+  }
+
+  .bg-purple {
+    background: var(--color-purple-500);
+  }
+
+  .bg-dark {
+    background: var(--color-brand-gray-700);
+  }
+
+  .bg-teal {
+    background: var(--color-teal-500);
+  }
+
+  .bg-navy {
+    background: var(--color-blue-900);
+  }
+
+  .table-block {
+    display: grid;
+    gap: var(--spacing-03);
+  }
+
+  .table-block h3 {
+    margin: 0;
+    color: var(--color-brand-gray-800);
+    font-size: var(--font-size-300);
+  }
+
+  .spec-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--color-white-1000);
+    border: var(--border-thin) solid var(--color-brand-gray-200);
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    font-size: var(--font-size-200);
+  }
+
+  .spec-table th,
+  .spec-table td {
+    padding: var(--spacing-03) var(--spacing-04);
+    text-align: left;
+    border-bottom: var(--border-thin) solid var(--color-brand-gray-100);
+    color: var(--color-brand-gray-700);
+  }
+
+  .spec-table th {
+    background: var(--color-brand-gray-050);
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    color: var(--color-brand-gray-500);
+  }
+
+  .spec-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  @media (max-width: calc(
+    var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15) +
+      var(--spacing-15) + var(--spacing-12) + var(--spacing-06) + var(--spacing-05)
+  )) {
+    .performer-chip-card {
+      width: 100%;
+    }
+
+    .performer-chip-icon {
+      width: calc(var(--spacing-12) + var(--spacing--03) + var(--spacing--01));
+      height: calc(var(--spacing-12) + var(--spacing--03) + var(--spacing--01));
+    }
+  }
+
+  @media (min-width: calc(
+    var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15) +
+      var(--spacing-15) + var(--spacing-12) + var(--spacing-06) + var(--spacing-05) +
+      var(--spacing-01) + var(--spacing--01)
+  )) {
+    .performer-chip-icon {
+      width: var(--spacing-11);
+      height: var(--spacing-11);
+    }
+  }
+</style>

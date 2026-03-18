@@ -1,0 +1,212 @@
+---
+import '../styles/global.scss';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Gametime Design System',
+  description = 'Documentation for Gametime design tokens and components.',
+} = Astro.props;
+
+const basePath = import.meta.env.BASE_URL;
+const pathname = Astro.url.pathname;
+const joinBase = (href: string) => `${basePath}${href.replace(/^\//, '')}`;
+const stripBase = (href: string) =>
+  href === '/' ? '/' : `/${href.replace(basePath, '').replace(/^\//, '')}`;
+
+const nav = [
+  {
+    section: 'Overview',
+    items: [{ href: '/', label: 'Home' }],
+  },
+  {
+    section: 'Tokens',
+    items: [
+      { href: '/tokens/colors/', label: 'Colors' },
+      { href: '/tokens/typography/', label: 'Typography' },
+      { href: '/tokens/spacing/', label: 'Spacing' },
+      { href: '/tokens/border-radius/', label: 'Border Radius' },
+      { href: '/tokens/elevation/', label: 'Elevation' },
+      { href: '/tokens/motion/', label: 'Motion' },
+    ],
+  },
+  {
+    section: 'Primitives',
+    items: [
+      { href: '/components/atoms/', label: 'Atoms' },
+      { href: '/components/molecules/', label: 'Molecules' },
+    ],
+  },
+  {
+    section: 'Components',
+    items: [
+      { href: '/components/carousel/', label: 'Carousel' },
+      { href: '/components/cards/', label: 'Cards' },
+      { href: '/components/event-listings/', label: 'Event Listings' },
+      { href: '/components/performer/', label: 'Performer & Teams' },
+      { href: '/components/reviews/', label: 'Reviews' },
+      { href: '/components/banners/', label: 'Hero & Banners' },
+      { href: '/components/tags/', label: 'Tags & Badges' },
+      { href: '/components/filters/', label: 'Filters' },
+      { href: '/components/blog/', label: 'Blog' },
+    ],
+  },
+];
+
+const isActive = (href: string) =>
+  href === '/' ? pathname === basePath : pathname.startsWith(joinBase(stripBase(href)));
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+  <body>
+    <div class="layout">
+      <aside class="sidebar">
+        <a class="brand" href={basePath}>
+          <span class="brand-mark">GT</span>
+          <span class="brand-text">Gametime DS</span>
+        </a>
+
+        <nav aria-label="Primary navigation">
+          {nav.map((group) => (
+            <section class="nav-section">
+              <h2>{group.section}</h2>
+              <ul>
+                {group.items.map((item) => (
+                  <li>
+                    <a href={joinBase(item.href)} class={isActive(item.href) ? 'active' : ''}>
+                      {item.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          ))}
+        </nav>
+      </aside>
+
+      <main class="content">
+        <slot />
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .layout {
+    min-height: 100vh;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    overflow-y: auto;
+    background: var(--color-brand-gray-900);
+    border-right: 1px solid var(--color-brand-gray-700);
+    padding: var(--spacing-08) var(--spacing-05);
+    z-index: var(--z-sticky);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-03);
+    margin-bottom: var(--spacing-09);
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-s);
+    background: var(--color-brand-green-500);
+    color: var(--color-setlist-black-1000);
+    font-weight: var(--font-weight-bold);
+    display: grid;
+    place-items: center;
+    box-shadow: var(--elevation-1);
+  }
+
+  .brand-text {
+    color: var(--color-white-1000);
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .nav-section + .nav-section {
+    margin-top: var(--spacing-07);
+  }
+
+  .nav-section h2 {
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.06em;
+    margin-bottom: var(--spacing-03);
+    text-transform: uppercase;
+  }
+
+  .nav-section ul {
+    list-style: none;
+    display: grid;
+    gap: var(--spacing-01);
+    padding: 0;
+  }
+
+  .nav-section a {
+    display: block;
+    color: var(--color-brand-gray-100);
+    padding: var(--spacing-02) var(--spacing-03);
+    border-radius: var(--radius-s);
+    transition: background var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard);
+  }
+
+  .nav-section a:hover {
+    background: var(--color-brand-gray-700);
+    color: var(--color-white-1000);
+  }
+
+  .nav-section a.active {
+    background: var(--color-brand-green-900);
+    color: var(--color-brand-green-100);
+    border: 1px solid var(--color-brand-green-800);
+  }
+
+  .content {
+    margin-left: 240px;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background: linear-gradient(
+      180deg,
+      var(--color-brand-gray-050) 0%,
+      var(--color-white-1000) 260px
+    );
+    padding: var(--spacing-10);
+  }
+
+  @media (max-width: 900px) {
+    .sidebar {
+      position: static;
+      width: 100%;
+      height: auto;
+    }
+
+    .content {
+      margin-left: 0;
+      padding: var(--spacing-07);
+    }
+  }
+</style>

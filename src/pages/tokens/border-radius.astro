@@ -1,0 +1,223 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const radiusTokens = [
+  { name: '--radius-xs', value: 2 },
+  { name: '--radius-s', value: 4 },
+  { name: '--radius-m', value: 8 },
+  { name: '--radius-l', value: 10 },
+  { name: '--radius-xl', value: 12 },
+  { name: '--radius-full', value: 50 },
+];
+---
+
+<Layout title="Border Radius | Gametime Design System" description="Border radius token documentation.">
+  <header class="page-header">
+    <div>
+      <p class="eyebrow">Tokens</p>
+      <h1>Border Radius</h1>
+      <p class="subtitle">
+        Radius tokens define the curvature of surfaces, containers, and controls. Use smaller
+        radii for dense UI and larger radii for expressive, touch-friendly elements.
+      </p>
+    </div>
+    <div class="radius-summary">
+      <span class="summary-label">Available Steps</span>
+      <span class="summary-value">6</span>
+    </div>
+  </header>
+
+  <section class="radius-grid" aria-labelledby="radius-scale">
+    <div class="section-header">
+      <h2 id="radius-scale">Radius scale</h2>
+      <p>Each card reflects the radius token on a square surface.</p>
+    </div>
+    <div class="grid">
+      {radiusTokens.map((token) => (
+        <article class="radius-card">
+          <div class="radius-preview" style={`border-radius: var(${token.name});`}></div>
+          <div class="radius-meta">
+            <p class="token-name">{token.name}</p>
+            <p class="token-value">{token.value}px</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="radius-usage" aria-labelledby="radius-usage">
+    <div class="section-header">
+      <h2 id="radius-usage">Real-world usage</h2>
+      <p>Each radius applied to a pill-style control.</p>
+    </div>
+    <div class="pill-grid">
+      {radiusTokens.map((token) => (
+        <div class="pill-row">
+          <div class="pill" style={`border-radius: var(${token.name});`}>
+            <span class="pill-label">Primary Action</span>
+          </div>
+          <div class="pill-meta">
+            <span class="token-name">{token.name}</span>
+            <span class="token-value">{token.value}px</span>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-08);
+    margin-bottom: var(--spacing-10);
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: var(--font-size-100);
+    color: var(--theme-light-text-default-tertiary);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 2vw + 1.5rem, 3rem);
+    margin: var(--spacing-03) 0 var(--spacing-04);
+  }
+
+  .subtitle {
+    max-width: 560px;
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-300);
+  }
+
+  .radius-summary {
+    display: grid;
+    gap: var(--spacing-02);
+    padding: var(--spacing-06);
+    background: var(--color-white-1000);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--theme-light-border-default-secondary);
+    min-width: 180px;
+    box-shadow: var(--elevation-1);
+  }
+
+  .summary-label {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--theme-light-text-default-tertiary);
+  }
+
+  .summary-value {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-semibold);
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: var(--spacing-06);
+    margin-bottom: var(--spacing-06);
+  }
+
+  section {
+    margin-bottom: var(--spacing-12);
+  }
+
+  .radius-grid .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-06);
+  }
+
+  .radius-card {
+    background: var(--color-white-1000);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--theme-light-border-default-secondary);
+    padding: var(--spacing-06);
+    display: grid;
+    gap: var(--spacing-04);
+    box-shadow: var(--elevation-1);
+  }
+
+  .radius-preview {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: linear-gradient(135deg, var(--color-brand-green-200), var(--color-brand-green-500));
+    border: 1px solid var(--color-brand-green-600);
+  }
+
+  .radius-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .token-name {
+    font-family: var(--font-family-mono);
+    font-size: var(--font-size-200);
+  }
+
+  .token-value {
+    color: var(--theme-light-text-default-secondary);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .radius-usage .pill-grid {
+    display: grid;
+    gap: var(--spacing-04);
+  }
+
+  .pill-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-06);
+    padding: var(--spacing-05) var(--spacing-06);
+    border-radius: var(--radius-l);
+    background: var(--color-white-1000);
+    border: 1px solid var(--theme-light-border-default-secondary);
+    box-shadow: var(--elevation-1);
+  }
+
+  .pill {
+    background: var(--color-brand-gray-900);
+    color: var(--color-white-1000);
+    padding: var(--spacing-02) var(--spacing-06);
+    border: 1px solid var(--color-brand-gray-800);
+  }
+
+  .pill-label {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .pill-meta {
+    display: grid;
+    text-align: right;
+  }
+
+  @media (max-width: 900px) {
+    .page-header {
+      flex-direction: column;
+    }
+
+    .radius-summary {
+      width: 100%;
+    }
+
+    .pill-row {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .pill-meta {
+      text-align: left;
+    }
+  }
+</style>

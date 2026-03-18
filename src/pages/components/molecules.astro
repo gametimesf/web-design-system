@@ -1,0 +1,901 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="Molecules | Gametime Design System"
+  description="Molecule component documentation for tooltip, notifications, menu, dialog, overlay, search, and tabs."
+>
+  <header class="page-header">
+    <h1>Molecules</h1>
+    <p>
+      Composite UI patterns built from atomic primitives. Each section lists applied tokens alongside live demos styled
+      with the shared Gametime design system.
+    </p>
+  </header>
+
+  <div class="molecules-grid">
+    <section class="molecule-card" id="tooltip" aria-labelledby="tooltip-title">
+      <header class="section-header">
+        <h2 id="tooltip-title">Tooltip</h2>
+        <p>Small contextual popovers that appear on hover. This demo shows top and bottom placements.</p>
+        <p class="token-note">
+          Tokens: <code>--elevation-2</code>, <code>--radius-s</code>, <code>--z-tooltip</code>
+        </p>
+      </header>
+
+      <div class="preview tooltip-preview">
+        <button class="demo-button tooltip-trigger" type="button">
+          Hover for Top Tooltip
+          <span class="tooltip-bubble top" role="tooltip">Placed above trigger</span>
+        </button>
+
+        <button class="demo-button tooltip-trigger" type="button">
+          Hover for Bottom Tooltip
+          <span class="tooltip-bubble bottom" role="tooltip">Placed below trigger</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="notification" aria-labelledby="notification-title">
+      <header class="section-header">
+        <h2 id="notification-title">Notification / Toast</h2>
+        <p>
+          Floating feedback cards for system or user events. Includes title, body, optional action, and dismiss button.
+        </p>
+        <p class="token-note">
+          Tokens: <code>--elevation-4</code>, <code>--radius-m</code>, <code>--theme-light-border-default-primary</code>
+        </p>
+      </header>
+
+      <div class="preview toast-preview">
+        <button class="demo-button reset-toasts" type="button">Reset Toasts</button>
+
+        <div class="toast-stack" aria-live="polite" aria-label="Toast notifications">
+          <article class="toast toast-success">
+            <img
+              class="toast-avatar"
+              src="https://placehold.co/44x44"
+              alt="Requester profile"
+              width="44"
+              height="44"
+            />
+            <div class="toast-copy">
+              <h3>Saved</h3>
+              <p>Your preferences were updated successfully.</p>
+            </div>
+            <div class="toast-actions">
+              <button class="toast-action" type="button">Undo</button>
+              <button class="toast-dismiss" type="button" aria-label="Dismiss notification">&times;</button>
+            </div>
+          </article>
+
+          <article class="toast toast-warning">
+            <img
+              class="toast-avatar"
+              src="https://placehold.co/44x44"
+              alt="Account storage"
+              width="44"
+              height="44"
+            />
+            <div class="toast-copy">
+              <h3>Storage Almost Full</h3>
+              <p>You are using 92% of your upload quota.</p>
+            </div>
+            <div class="toast-actions">
+              <button class="toast-dismiss" type="button" aria-label="Dismiss notification">&times;</button>
+            </div>
+          </article>
+
+          <article class="toast toast-error">
+            <img
+              class="toast-avatar"
+              src="https://placehold.co/44x44"
+              alt="Payment alert"
+              width="44"
+              height="44"
+            />
+            <div class="toast-copy">
+              <h3>Payment Failed</h3>
+              <p>We could not process your card. Try a different payment method.</p>
+            </div>
+            <div class="toast-actions">
+              <button class="toast-action" type="button">Retry</button>
+              <button class="toast-dismiss" type="button" aria-label="Dismiss notification">&times;</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="search" aria-labelledby="search-title">
+      <header class="section-header">
+        <h2 id="search-title">Search Bar</h2>
+        <p>Header search styled like Gametime: dark rounded pill, icon left, clear button right, active focus glow.</p>
+        <p class="token-note">
+          Tokens: <code>--radius-pill</code>, <code>--theme-light-border-default-strong</code>,
+          <code>--theme-light-text-default-primary</code>
+        </p>
+      </header>
+
+      <div class="preview search-preview">
+        <label class="search-field" aria-label="Search events">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input type="search" placeholder="Search teams, artists, venues" />
+          <button class="search-clear" type="button" aria-label="Clear search" hidden>✕</button>
+        </label>
+
+        <label class="search-field is-active" aria-label="Search events (active)">
+          <span class="search-icon" aria-hidden="true">⌕</span>
+          <input type="search" value="Phoenix Suns" />
+          <button class="search-clear" type="button" aria-label="Clear search">
+            ✕
+          </button>
+        </label>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="tabs" aria-labelledby="tabs-title">
+      <header class="section-header">
+        <h2 id="tabs-title">Tab Bar</h2>
+        <p>Horizontal category tabs with active indicator and emphasis.</p>
+        <p class="token-note">
+          Tokens: <code>--theme-light-border-default-primary</code>, <code>--color-brand-green-500</code>,
+          <code>--font-weight-semibold</code>
+        </p>
+      </header>
+
+      <div class="preview tabs-preview">
+        <div class="tab-bar" role="tablist" aria-label="Categories">
+          <button class="tab-button is-active" role="tab" aria-selected="true">Sports</button>
+          <button class="tab-button" role="tab" aria-selected="false">Music</button>
+          <button class="tab-button" role="tab" aria-selected="false">Comedy</button>
+          <button class="tab-button" role="tab" aria-selected="false">Cities</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="menu" aria-labelledby="menu-title">
+      <header class="section-header">
+        <h2 id="menu-title">Menu / Dropdown</h2>
+        <p>Action list anchored to a trigger. Includes hover states, separators, and disabled items.</p>
+        <p class="token-note">Token: <code>--elevation-3</code></p>
+      </header>
+
+      <div class="preview menu-preview">
+        <details class="menu-demo">
+          <summary class="demo-button">Open Menu</summary>
+          <ul class="menu-list" role="menu" aria-label="Demo dropdown menu">
+            <li><button type="button" role="menuitem">Edit Event</button></li>
+            <li><button type="button" role="menuitem">Duplicate</button></li>
+            <li class="menu-divider" aria-hidden="true"></li>
+            <li><button type="button" role="menuitem">Share Link</button></li>
+            <li><button type="button" role="menuitem">Export</button></li>
+            <li class="menu-divider" aria-hidden="true"></li>
+            <li><button type="button" role="menuitem" disabled>Delete (Disabled)</button></li>
+          </ul>
+        </details>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="dialog" aria-labelledby="dialog-title">
+      <header class="section-header">
+        <h2 id="dialog-title">Dialog / Modal</h2>
+        <p>Centered panel over a backdrop for focused workflows. This demo uses the <code>:target</code> technique.</p>
+        <p class="token-note">
+          Tokens: <code>--elevation-5</code>, <code>--radius-l</code>, <code>--z-modal</code>
+        </p>
+      </header>
+
+      <div class="preview dialog-preview">
+        <a class="demo-button open-dialog" href="#dialog-demo">Open Dialog</a>
+
+        <div id="dialog-demo" class="dialog-overlay" aria-labelledby="dialog-heading" role="dialog" aria-modal="true">
+          <div class="dialog-panel">
+            <header class="dialog-header">
+              <h3 id="dialog-heading">Confirm Ticket Transfer</h3>
+              <a class="dialog-close" href="#dialog" aria-label="Close dialog">&times;</a>
+            </header>
+            <div class="dialog-body">
+              <p>
+                You are transferring 2 tickets to Jamie Lee. They will receive a secure claim link and have 24 hours to
+                accept.
+              </p>
+            </div>
+            <footer class="dialog-footer">
+              <a class="dialog-link" href="#dialog">Cancel</a>
+              <button class="demo-button" type="button">Confirm Transfer</button>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="overlay" aria-labelledby="overlay-title">
+      <header class="section-header">
+        <h2 id="overlay-title">Backdrop / Overlay</h2>
+        <p>
+          Semi-transparent layer that blocks interaction with background content and shifts focus to foreground
+          surfaces.
+        </p>
+        <p class="token-note">Tokens: <code>--color-setlist-black-900</code>, <code>--z-floating</code></p>
+      </header>
+
+      <div class="preview overlay-preview">
+        <div class="overlay-stage">
+          <article class="overlay-base-card">
+            <h3>Underlying Content</h3>
+            <p>This area represents the page behind a modal or flyout.</p>
+          </article>
+          <div class="static-backdrop" aria-hidden="true"></div>
+          <article class="overlay-focus-card" aria-hidden="true">
+            <h3>Active Surface</h3>
+            <p>Interaction should happen here while the backdrop is visible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="molecule-card" id="cards" aria-labelledby="cards-title">
+      <header class="section-header">
+        <h2 id="cards-title">Card Patterns</h2>
+        <p>Common card compositions for content grouping, media presentation, and inline actions.</p>
+        <p class="token-note">Tokens: <code>--elevation-1</code> and <code>--elevation-2</code></p>
+      </header>
+
+      <div class="preview card-preview">
+        <div class="card-grid">
+          <article class="card basic-card">
+            <h3>Basic Card</h3>
+            <p>Use for compact information blocks with short supporting text.</p>
+          </article>
+
+          <article class="card media-card">
+            <img
+              class="media-area"
+              src="https://placehold.co/360x180"
+              alt="Event artwork placeholder"
+              width="360"
+              height="180"
+            />
+            <div class="card-content">
+              <h3>Card with Image Area</h3>
+              <p>Place artwork, map snapshots, or event thumbnails in the media slot.</p>
+            </div>
+          </article>
+
+          <article class="card action-card">
+            <div class="card-content">
+              <h3>Card with Actions</h3>
+              <p>Pairs descriptive content with one or more next-step actions.</p>
+            </div>
+            <div class="card-actions">
+              <button class="demo-button" type="button">View</button>
+              <button class="demo-button secondary" type="button">Dismiss</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--spacing-08);
+  }
+
+  .page-header h1 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-700);
+    margin-bottom: var(--spacing-03);
+  }
+
+  .page-header p {
+    color: var(--theme-light-text-default-secondary);
+    max-width: 72ch;
+  }
+
+  .molecules-grid {
+    display: grid;
+    gap: var(--spacing-06);
+  }
+
+  .molecule-card {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elevation-1);
+    padding: var(--spacing-06);
+    display: grid;
+    gap: var(--spacing-05);
+  }
+
+  .section-header h2 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-500);
+    margin: 0;
+  }
+
+  .section-header p {
+    color: var(--theme-light-text-default-secondary);
+    margin: var(--spacing-02) 0 0;
+    max-width: 72ch;
+  }
+
+  .token-note {
+    color: var(--theme-light-text-default-tertiary);
+    font-size: var(--font-size-100);
+  }
+
+  .token-note code {
+    background: var(--theme-light-background-default-secondary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-s);
+    color: var(--theme-light-text-default-primary);
+    padding: 0 var(--spacing-01);
+  }
+
+  .preview {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-l);
+    margin-top: var(--spacing-05);
+    overflow: hidden;
+    padding: var(--spacing-07);
+    position: relative;
+  }
+
+  .demo-button {
+    background: var(--theme-light-button-default-primary);
+    border: 1px solid var(--theme-light-button-default-primary);
+    border-radius: var(--radius-m);
+    color: var(--theme-light-text-button-on-primary);
+    cursor: pointer;
+    display: inline-flex;
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-medium);
+    line-height: 1;
+    padding: var(--spacing-03) var(--spacing-04);
+    text-decoration: none;
+    transition: background var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .demo-button:hover {
+    background: var(--theme-light-button-default-primary-hover);
+    transform: translateY(-1px);
+  }
+
+  .demo-button.secondary {
+    background: var(--theme-light-button-default-tertiary);
+    border-color: var(--theme-light-border-default-primary);
+    color: var(--theme-light-text-button-on-tertiary);
+  }
+
+  .demo-button.secondary:hover {
+    background: var(--theme-light-button-default-tertiary-hover);
+  }
+
+  .tooltip-preview {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-08);
+  }
+
+  .tooltip-trigger {
+    position: relative;
+  }
+
+  .tooltip-bubble {
+    background: var(--color-brand-gray-900);
+    border-radius: var(--radius-s);
+    box-shadow: var(--elevation-2);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-100);
+    left: 50%;
+    opacity: 0;
+    padding: var(--spacing-02) var(--spacing-03);
+    pointer-events: none;
+    position: absolute;
+    transform: translate(-50%, 6px);
+    transition: opacity var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+    white-space: nowrap;
+    z-index: var(--z-tooltip);
+  }
+
+  .tooltip-bubble.top {
+    bottom: calc(100% + var(--spacing-02));
+  }
+
+  .tooltip-bubble.bottom {
+    top: calc(100% + var(--spacing-02));
+  }
+
+  .tooltip-trigger:hover .tooltip-bubble,
+  .tooltip-trigger:focus-visible .tooltip-bubble {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  .toast-preview {
+    min-height: 420px;
+  }
+
+  .reset-toasts {
+    background: var(--theme-light-button-default-tertiary);
+    border-color: var(--theme-light-border-default-secondary);
+    color: var(--theme-light-text-button-on-tertiary);
+  }
+
+  .toast-stack {
+    display: grid;
+    gap: var(--spacing-03);
+    max-width: 420px;
+    position: absolute;
+    right: var(--spacing-07);
+    top: var(--spacing-07);
+    width: min(100%, 420px);
+  }
+
+  .toast {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-left-width: 4px;
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-4);
+    display: grid;
+    gap: var(--spacing-03);
+    grid-template-columns: auto 1fr auto;
+    padding: var(--spacing-03);
+    align-items: start;
+  }
+
+  .toast-avatar {
+    border-radius: var(--radius-round);
+    box-shadow: var(--elevation-1);
+    object-fit: cover;
+  }
+
+  .toast-copy h3 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-200);
+    margin: 0;
+  }
+
+  .toast-copy p {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-100);
+    margin: var(--spacing-01) 0 0;
+  }
+
+  .toast-actions {
+    align-items: flex-start;
+    display: flex;
+    gap: var(--spacing-01);
+  }
+
+  .toast-action,
+  .toast-dismiss {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
+    color: var(--theme-light-text-link-primary);
+    cursor: pointer;
+    font-size: var(--font-size-100);
+    line-height: 1;
+    padding: var(--spacing-01);
+  }
+
+  .toast-dismiss {
+    color: var(--theme-light-text-default-tertiary);
+    font-size: var(--font-size-300);
+    padding: 0 var(--spacing-01);
+  }
+
+  .toast-action:hover,
+  .toast-dismiss:hover {
+    background: var(--theme-light-background-default-secondary);
+    border-color: var(--theme-light-border-default-primary);
+  }
+
+  .toast-success {
+    border-left-color: var(--color-brand-green-500);
+  }
+
+  .toast-warning {
+    border-left-color: var(--color-yellow-600);
+  }
+
+  .toast-error {
+    border-left-color: var(--color-red-500);
+  }
+
+  .search-preview {
+    display: grid;
+    gap: var(--spacing-04);
+  }
+
+  .search-field {
+    align-items: center;
+    background: var(--color-brand-gray-900);
+    border: 1px solid var(--color-brand-gray-800);
+    border-radius: var(--radius-pill);
+    display: grid;
+    gap: var(--spacing-02);
+    grid-template-columns: auto 1fr auto;
+    padding: var(--spacing-02) var(--spacing-04);
+    max-width: 520px;
+  }
+
+  .search-field input {
+    background: transparent;
+    border: 0;
+    color: var(--color-white-1000);
+    font-size: var(--font-size-200);
+    outline: none;
+  }
+
+  .search-field input::placeholder {
+    color: var(--color-white-600);
+  }
+
+  .search-icon {
+    color: var(--color-white-700);
+    font-size: var(--font-size-300);
+  }
+
+  .search-clear {
+    background: var(--color-white-200);
+    border: 0;
+    border-radius: var(--radius-round);
+    color: var(--color-white-1000);
+    cursor: pointer;
+    font-size: var(--font-size-100);
+    line-height: 1;
+    padding: var(--spacing-01) var(--spacing-02);
+  }
+
+  .search-field.is-active {
+    border-color: var(--color-brand-green-500);
+    box-shadow: 0 0 0 3px var(--color-brand-green-100);
+  }
+
+  .tabs-preview {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .tab-bar {
+    display: flex;
+    gap: var(--spacing-05);
+    border-bottom: 1px solid var(--theme-light-border-default-primary);
+  }
+
+  .tab-button {
+    background: transparent;
+    border: 0;
+    border-bottom: 3px solid transparent;
+    color: var(--theme-light-text-default-secondary);
+    cursor: pointer;
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-medium);
+    padding: var(--spacing-03) 0;
+  }
+
+  .tab-button.is-active {
+    border-bottom-color: var(--color-brand-green-500);
+    color: var(--theme-light-text-default-primary);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .menu-preview {
+    min-height: 240px;
+  }
+
+  .menu-demo {
+    display: inline-block;
+    position: relative;
+  }
+
+  .menu-demo summary {
+    list-style: none;
+  }
+
+  .menu-demo summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .menu-list {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-3);
+    left: 0;
+    list-style: none;
+    margin: var(--spacing-02) 0 0;
+    min-width: 220px;
+    padding: var(--spacing-01);
+    position: absolute;
+    z-index: var(--z-dropdown);
+  }
+
+  .menu-list li {
+    margin: 0;
+  }
+
+  .menu-list button {
+    background: transparent;
+    border: 0;
+    border-radius: var(--radius-s);
+    color: var(--theme-light-text-default-primary);
+    cursor: pointer;
+    display: block;
+    font-size: var(--font-size-200);
+    padding: var(--spacing-02) var(--spacing-03);
+    text-align: left;
+    width: 100%;
+  }
+
+  .menu-list button:hover {
+    background: var(--theme-light-background-default-secondary);
+  }
+
+  .menu-list button:disabled {
+    color: var(--theme-light-text-default-tertiary);
+    cursor: not-allowed;
+  }
+
+  .menu-list button:disabled:hover {
+    background: transparent;
+  }
+
+  .menu-divider {
+    border-top: 1px solid var(--theme-light-border-default-primary);
+    margin: var(--spacing-01) 0;
+  }
+
+  .dialog-preview {
+    min-height: 280px;
+  }
+
+  .dialog-overlay {
+    align-items: center;
+    background: color-mix(in srgb, var(--color-setlist-black-900) 64%, transparent);
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    left: 0;
+    opacity: 0;
+    padding: var(--spacing-06);
+    pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity var(--duration-normal) var(--ease-standard);
+    z-index: var(--z-modal);
+  }
+
+  .dialog-overlay:target {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .dialog-panel {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elevation-5);
+    max-width: 540px;
+    width: min(100%, 540px);
+  }
+
+  .dialog-header,
+  .dialog-footer {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-04) var(--spacing-05);
+  }
+
+  .dialog-header {
+    border-bottom: 1px solid var(--theme-light-border-default-primary);
+  }
+
+  .dialog-header h3 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-400);
+    margin: 0;
+  }
+
+  .dialog-close {
+    border-radius: var(--radius-s);
+    color: var(--theme-light-text-default-tertiary);
+    font-size: var(--font-size-500);
+    line-height: 1;
+    padding: 0 var(--spacing-01);
+    text-decoration: none;
+  }
+
+  .dialog-close:hover {
+    background: var(--theme-light-background-default-secondary);
+    color: var(--theme-light-text-default-secondary);
+  }
+
+  .dialog-body {
+    color: var(--theme-light-text-default-secondary);
+    padding: var(--spacing-05);
+  }
+
+  .dialog-body p {
+    margin: 0;
+  }
+
+  .dialog-footer {
+    border-top: 1px solid var(--theme-light-border-default-primary);
+    gap: var(--spacing-03);
+    justify-content: flex-end;
+  }
+
+  .dialog-link {
+    color: var(--theme-light-text-link-primary);
+    font-size: var(--font-size-200);
+    text-decoration: none;
+  }
+
+  .dialog-link:hover {
+    color: var(--theme-light-text-link-primary-hover);
+  }
+
+  .overlay-stage {
+    min-height: 280px;
+    position: relative;
+  }
+
+  .overlay-base-card,
+  .overlay-focus-card {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-m);
+    padding: var(--spacing-05);
+    width: min(100%, 380px);
+  }
+
+  .overlay-base-card h3,
+  .overlay-focus-card h3 {
+    margin: 0;
+  }
+
+  .overlay-base-card p,
+  .overlay-focus-card p {
+    margin: var(--spacing-02) 0 0;
+  }
+
+  .overlay-base-card {
+    box-shadow: var(--elevation-1);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .static-backdrop {
+    background: color-mix(in srgb, var(--color-setlist-black-900) 56%, transparent);
+    border-radius: var(--radius-m);
+    inset: 0;
+    position: absolute;
+  }
+
+  .overlay-focus-card {
+    box-shadow: var(--elevation-5);
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: var(--z-floating);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: var(--spacing-04);
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .card {
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-primary);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-1);
+    overflow: hidden;
+  }
+
+  .card h3 {
+    color: var(--theme-light-text-default-primary);
+    margin: 0;
+  }
+
+  .card p {
+    color: var(--theme-light-text-default-secondary);
+    margin: var(--spacing-02) 0 0;
+  }
+
+  .basic-card,
+  .action-card .card-content,
+  .media-card .card-content {
+    padding: var(--spacing-05);
+  }
+
+  .media-card {
+    box-shadow: var(--elevation-2);
+  }
+
+  .media-area {
+    height: 180px;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .card-actions {
+    border-top: 1px solid var(--theme-light-border-default-primary);
+    display: flex;
+    gap: var(--spacing-02);
+    padding: var(--spacing-04) var(--spacing-05);
+  }
+
+  @media (max-width: 900px) {
+    .preview {
+      padding: var(--spacing-05);
+    }
+
+    .toast-stack {
+      left: var(--spacing-05);
+      position: static;
+      right: auto;
+      top: auto;
+      width: 100%;
+    }
+
+    .toast-preview {
+      min-height: 0;
+    }
+
+    .dialog-footer {
+      flex-wrap: wrap;
+    }
+
+    .tab-bar {
+      flex-wrap: wrap;
+    }
+  }
+</style>
+
+<script>
+  const toastRoot = document.querySelector('.toast-preview');
+
+  if (toastRoot) {
+    toastRoot.addEventListener('click', (event) => {
+      const target = event.target;
+
+      if (!(target instanceof HTMLElement)) {
+        return;
+      }
+
+      if (target.classList.contains('toast-dismiss')) {
+        const toast = target.closest('.toast');
+        if (toast instanceof HTMLElement) {
+          toast.hidden = true;
+        }
+      }
+
+      if (target.classList.contains('reset-toasts')) {
+        const toasts = toastRoot.querySelectorAll('.toast');
+        toasts.forEach((toast) => {
+          if (toast instanceof HTMLElement) {
+            toast.hidden = false;
+          }
+        });
+      }
+    });
+  }
+</script>

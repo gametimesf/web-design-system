@@ -1,0 +1,589 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="filters | Gametime Design System" description="Filter and dropdown UI patterns used on performer and category pages.">
+  <div class="page">
+    <header class="page-header">
+      <p class="eyebrow">Components</p>
+      <h1>Filters</h1>
+      <p class="lede">
+        Filter chips, selection chips, tabs, and dropdown patterns used across performer and
+        category pages on gametime.co.
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Filter Chip / Menu</h2>
+          <p class="section-copy">
+            Pill-shaped filter buttons that open menus or toggle filters. Subtle border,
+            compact height, and a trailing caret to indicate a menu.
+          </p>
+        </div>
+        <div class="legend">
+          <span class="legend-item"><span class="dot dot-active"></span>Active</span>
+          <span class="legend-item"><span class="dot dot-disabled"></span>Disabled</span>
+        </div>
+      </div>
+
+      <div class="chip-row">
+        <button class="filter-chip" type="button">
+          No Events near New York City
+          <span class="caret" aria-hidden="true">▼</span>
+        </button>
+
+        <button class="filter-chip is-active" type="button">
+          Home &amp; Away
+          <span class="caret" aria-hidden="true">▼</span>
+        </button>
+
+        <button class="filter-chip" type="button">
+          <span class="icon" aria-hidden="true">
+            <svg viewBox="0 0 20 20" role="img" aria-hidden="true">
+              <rect x="3" y="4" width="14" height="13" rx="2" />
+              <rect x="6" y="2" width="2" height="4" />
+              <rect x="12" y="2" width="2" height="4" />
+              <rect x="5" y="8" width="10" height="2" />
+            </svg>
+          </span>
+          All Dates
+          <span class="caret" aria-hidden="true">▼</span>
+        </button>
+
+        <button class="filter-chip" type="button" disabled>
+          City or Venue
+          <span class="caret" aria-hidden="true">▼</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Chip Component</h2>
+          <p class="section-copy">
+            Selection chips from the shared UI library. Size and color variants shown below,
+            including icon and menu modes, plus disabled state.
+          </p>
+        </div>
+      </div>
+
+      <div class="chip-grid">
+        <div class="chip-card">
+          <p class="chip-card-title">Small · Primary</p>
+          <div class="chip-stack">
+            <span class="ui-chip size-sm color-primary">Music</span>
+            <span class="ui-chip size-sm color-primary with-icon">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M10 2l6 6-6 10-6-10 6-6z" />
+                </svg>
+              </span>
+              Featured
+            </span>
+            <span class="ui-chip size-sm color-primary is-menu">Teams<span class="caret">▼</span></span>
+            <span class="ui-chip size-sm color-primary disabled">Disabled</span>
+          </div>
+        </div>
+
+        <div class="chip-card">
+          <p class="chip-card-title">Small · Secondary</p>
+          <div class="chip-stack">
+            <span class="ui-chip size-sm color-secondary">Concerts</span>
+            <span class="ui-chip size-sm color-secondary with-icon">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 10h12v2H4z" />
+                </svg>
+              </span>
+              Nearby
+            </span>
+            <span class="ui-chip size-sm color-secondary is-menu">Genre<span class="caret">▼</span></span>
+            <span class="ui-chip size-sm color-secondary disabled">Disabled</span>
+          </div>
+        </div>
+
+        <div class="chip-card">
+          <p class="chip-card-title">Medium · Primary</p>
+          <div class="chip-stack">
+            <span class="ui-chip size-md color-primary">NBA</span>
+            <span class="ui-chip size-md color-primary with-icon">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <circle cx="10" cy="10" r="6" />
+                </svg>
+              </span>
+              Top Picks
+            </span>
+            <span class="ui-chip size-md color-primary is-menu">Sort<span class="caret">▼</span></span>
+            <span class="ui-chip size-md color-primary disabled">Disabled</span>
+          </div>
+        </div>
+
+        <div class="chip-card">
+          <p class="chip-card-title">Medium · Secondary</p>
+          <div class="chip-stack">
+            <span class="ui-chip size-md color-secondary">MLB</span>
+            <span class="ui-chip size-md color-secondary with-icon">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M5 5h10v10H5z" />
+                </svg>
+              </span>
+              Verified
+            </span>
+            <span class="ui-chip size-md color-secondary is-menu">Dates<span class="caret">▼</span></span>
+            <span class="ui-chip size-md color-secondary disabled">Disabled</span>
+          </div>
+        </div>
+
+        <div class="chip-card">
+          <p class="chip-card-title">Large · Primary</p>
+          <div class="chip-stack">
+            <span class="ui-chip size-lg color-primary">NFL</span>
+            <span class="ui-chip size-lg color-primary with-icon">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M10 3l7 7-7 7-7-7 7-7z" />
+                </svg>
+              </span>
+              Premium
+            </span>
+            <span class="ui-chip size-lg color-primary is-menu">Price<span class="caret">▼</span></span>
+            <span class="ui-chip size-lg color-primary disabled">Disabled</span>
+          </div>
+        </div>
+
+        <div class="chip-card">
+          <p class="chip-card-title">Large · Secondary</p>
+          <div class="chip-stack">
+            <span class="ui-chip size-lg color-secondary">Comedy</span>
+            <span class="ui-chip size-lg color-secondary with-icon">
+              <span class="icon" aria-hidden="true">
+                <svg viewBox="0 0 20 20">
+                  <path d="M4 10h12" />
+                  <path d="M6 6h8" />
+                  <path d="M6 14h8" />
+                </svg>
+              </span>
+              All Ages
+            </span>
+            <span class="ui-chip size-lg color-secondary is-menu">More<span class="caret">▼</span></span>
+            <span class="ui-chip size-lg color-secondary disabled">Disabled</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Tab Bar</h2>
+          <p class="section-copy">
+            Performer page tab bar for Events and Parking. Active tab uses a green underline
+            indicator with white text.
+          </p>
+        </div>
+      </div>
+
+      <div class="tab-bar" role="tablist" aria-label="Event type">
+        <button class="tab is-active" role="tab" aria-selected="true" type="button">Events</button>
+        <button class="tab" role="tab" aria-selected="false" type="button">Parking</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <div>
+          <h2>Dropdown Pattern</h2>
+          <p class="section-copy">
+            Menu chip reveals a dropdown panel below. This demo uses a CSS-only pattern with
+            <code>details/summary</code> to show the menu.
+          </p>
+        </div>
+      </div>
+
+      <div class="dropdown-demo">
+        <details class="dropdown">
+          <summary class="filter-chip">
+            Price Range
+            <span class="caret" aria-hidden="true">▼</span>
+          </summary>
+          <div class="dropdown-panel" role="listbox" aria-label="Price range">
+            <button class="dropdown-item" type="button">Any price</button>
+            <button class="dropdown-item" type="button">Under $50</button>
+            <button class="dropdown-item" type="button">$50 - $100</button>
+            <button class="dropdown-item" type="button">$100 - $200</button>
+            <button class="dropdown-item" type="button">$200+</button>
+          </div>
+        </details>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    display: grid;
+    gap: var(--spacing-10);
+    color: var(--color-brand-gray-900);
+  }
+
+  .page-header {
+    background: var(--color-white-1000);
+    border-radius: var(--radius-l);
+    padding: var(--spacing-08);
+    box-shadow: var(--elevation-1);
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-500);
+    margin-bottom: var(--spacing-03);
+  }
+
+  .lede {
+    max-width: calc(
+      var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15)
+    );
+    color: var(--color-brand-gray-600);
+  }
+
+  .section {
+    background: var(--color-white-1000);
+    border-radius: var(--radius-l);
+    padding: var(--spacing-08);
+    box-shadow: var(--elevation-1);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-06);
+    align-items: flex-start;
+    margin-bottom: var(--spacing-06);
+    flex-wrap: wrap;
+  }
+
+  .section-copy {
+    color: var(--color-brand-gray-600);
+    max-width: calc(
+      var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15) +
+        var(--spacing-09)
+    );
+  }
+
+  .legend {
+    display: flex;
+    gap: var(--spacing-04);
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-500);
+  }
+
+  .legend-item {
+    display: inline-flex;
+    gap: var(--spacing-02);
+    align-items: center;
+  }
+
+  .dot {
+    width: var(--spacing-03);
+    height: var(--spacing-03);
+    border-radius: var(--radius-full);
+    display: inline-block;
+  }
+
+  .dot-active {
+    background: var(--color-brand-green-500);
+  }
+
+  .dot-disabled {
+    background: var(--color-brand-gray-300);
+  }
+
+  .chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-04);
+    align-items: center;
+  }
+
+  .filter-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    height: var(--spacing-08);
+    padding: 0 var(--spacing-05);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--color-brand-gray-600);
+    background: var(--color-white-1000);
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    box-shadow: var(--elevation-1);
+    cursor: pointer;
+    transition: border var(--duration-fast) var(--ease-standard),
+      background var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+  }
+
+  .filter-chip .caret {
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-500);
+  }
+
+  .filter-chip .icon {
+    width: var(--spacing-05);
+    height: var(--spacing-05);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-brand-gray-600);
+  }
+
+  .filter-chip svg {
+    width: var(--spacing-05);
+    height: var(--spacing-05);
+    fill: currentColor;
+  }
+
+  .filter-chip.is-active {
+    background: var(--color-brand-green-050);
+    border-color: var(--color-brand-green-600);
+    color: var(--color-brand-gray-900);
+    box-shadow: var(--elevation-1);
+  }
+
+  .filter-chip.is-active .caret {
+    color: var(--color-brand-green-700);
+  }
+
+  .filter-chip:disabled,
+  .filter-chip[disabled] {
+    background: var(--color-brand-gray-100);
+    border-color: var(--color-brand-gray-300);
+    color: var(--color-brand-gray-400);
+    cursor: not-allowed;
+    box-shadow: none;
+  }
+
+  .filter-chip:disabled .caret,
+  .filter-chip[disabled] .caret {
+    color: var(--color-brand-gray-400);
+  }
+
+  .chip-grid {
+    display: grid;
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(calc(var(--spacing-13) + var(--spacing-12) + var(--spacing-11)), 1fr)
+    );
+    gap: var(--spacing-06);
+  }
+
+  .chip-card {
+    border: 1px solid var(--color-brand-gray-200);
+    border-radius: var(--radius-m);
+    padding: var(--spacing-05);
+    background: var(--color-brand-gray-050);
+  }
+
+  .chip-card-title {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--color-brand-gray-500);
+    margin-bottom: var(--spacing-04);
+  }
+
+  .chip-stack {
+    display: grid;
+    gap: var(--spacing-03);
+    justify-items: start;
+  }
+
+  .ui-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    padding: 0 var(--spacing-04);
+    border-radius: var(--radius-full);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-100);
+    border: 1px solid transparent;
+    white-space: nowrap;
+  }
+
+  .ui-chip .icon {
+    width: var(--spacing-05);
+    height: var(--spacing-05);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: currentColor;
+  }
+
+  .ui-chip .icon svg {
+    width: var(--spacing-05);
+    height: var(--spacing-05);
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 0;
+  }
+
+  .ui-chip.with-icon {
+    padding-left: var(--spacing-03);
+  }
+
+  .ui-chip .caret {
+    font-size: var(--font-size-100);
+    margin-left: var(--spacing-01);
+  }
+
+  .ui-chip.size-sm {
+    height: var(--spacing-07);
+    border-radius: calc(var(--spacing-05) + var(--spacing-02));
+    font-size: var(--font-size-100);
+  }
+
+  .ui-chip.size-md {
+    height: var(--spacing-08);
+    border-radius: var(--radius-full);
+  }
+
+  .ui-chip.size-lg {
+    height: var(--spacing-09);
+    border-radius: calc(var(--spacing-04) + var(--spacing-04));
+  }
+
+  .ui-chip.color-primary {
+    background: var(--color-gray-800);
+    color: var(--color-white-1000);
+    border-color: var(--color-gray-600);
+  }
+
+  .ui-chip.color-secondary {
+    background: var(--color-white-1000);
+    color: var(--color-gray-1000);
+    border-color: var(--color-white-1000);
+  }
+
+  .ui-chip.disabled {
+    background: var(--color-brand-gray-200);
+    color: var(--color-brand-gray-400);
+    border-color: var(--color-brand-gray-300);
+  }
+
+  .tab-bar {
+    display: inline-flex;
+    gap: var(--spacing-06);
+    background: var(--color-brand-gray-900);
+    padding: var(--spacing-03) var(--spacing-05);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elevation-1);
+  }
+
+  .tab {
+    position: relative;
+    background: transparent;
+    border: none;
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--spacing-02) var(--spacing-01) var(--spacing-03);
+    cursor: pointer;
+  }
+
+  .tab.is-active {
+    color: var(--color-white-1000);
+  }
+
+  .tab.is-active::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: var(--spacing-01);
+    background: var(--color-brand-green-500);
+    border-radius: var(--radius-full);
+  }
+
+  .dropdown-demo {
+    display: grid;
+    justify-items: start;
+  }
+
+  .dropdown {
+    position: relative;
+  }
+
+  .dropdown summary {
+    list-style: none;
+  }
+
+  .dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .dropdown[open] > summary.filter-chip {
+    background: var(--color-brand-green-050);
+    border-color: var(--color-brand-green-600);
+  }
+
+  .dropdown-panel {
+    position: absolute;
+    top: calc(100% + var(--spacing-02));
+    left: 0;
+    min-width: calc(var(--spacing-13) + var(--spacing-12));
+    background: var(--color-white-1000);
+    border: 1px solid var(--color-brand-gray-200);
+    border-radius: var(--radius-m);
+    padding: var(--spacing-02);
+    box-shadow: var(--elevation-2);
+    display: grid;
+    gap: var(--spacing-01);
+    z-index: var(--z-dropdown);
+  }
+
+  .dropdown-item {
+    width: 100%;
+    text-align: left;
+    border: none;
+    background: transparent;
+    color: var(--color-brand-gray-800);
+    font-size: var(--font-size-200);
+    padding: var(--spacing-03) var(--spacing-04);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-standard),
+      color var(--duration-fast) var(--ease-standard);
+  }
+
+  .dropdown-item:hover,
+  .dropdown-item:focus-visible {
+    background: var(--color-brand-gray-100);
+    color: var(--color-brand-gray-900);
+  }
+
+  @media (max-width: calc(
+    var(--spacing-15) + var(--spacing-15) + var(--spacing-15) + var(--spacing-15) +
+      var(--spacing-08) + var(--spacing-04) + var(--spacing-03) + var(--spacing-02)
+  )) {
+    .section-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .tab-bar {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

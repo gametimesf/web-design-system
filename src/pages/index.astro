@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const basePath = import.meta.env.BASE_URL;
+const joinBase = (href: string) => `${basePath}${href.replace(/^\//, '')}`;
+---
+
+<Layout
+  title="Gametime Design System"
+  description="Token and component documentation for the Gametime web design system."
+>
+  <section class="hero">
+    <p class="kicker">Documentation</p>
+    <h1>Gametime Design System</h1>
+    <p>
+      A single source of truth for tokens and reusable components powering
+      Gametime interfaces.
+    </p>
+  </section>
+
+  <section class="stats" aria-label="System quick stats">
+    <article>
+      <h2>134</h2>
+      <p>Color Tokens</p>
+    </article>
+    <article>
+      <h2>18</h2>
+      <p>Spacing Steps</p>
+    </article>
+    <article>
+      <h2>2</h2>
+      <p>Component Groups</p>
+    </article>
+  </section>
+
+  <section class="cards" aria-label="Documentation sections">
+    <a href={joinBase('/tokens/colors/')} class="card">
+      <h3>Tokens</h3>
+      <p>Explore colors, typography, spacing, radius, elevation, and motion.</p>
+    </a>
+
+    <a href={joinBase('/components/atoms/')} class="card">
+      <h3>Atoms</h3>
+      <p>Foundational building blocks and usage patterns.</p>
+    </a>
+
+    <a href={joinBase('/components/molecules/')} class="card">
+      <h3>Molecules</h3>
+      <p>Composed UI patterns built from atoms.</p>
+    </a>
+  </section>
+</Layout>
+
+<style>
+  .hero {
+    max-width: 700px;
+    padding-bottom: var(--spacing-09);
+  }
+
+  .kicker {
+    color: var(--color-brand-green-700);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-03);
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: var(--spacing-04);
+  }
+
+  .hero p {
+    font-size: var(--font-size-300);
+    max-width: 56ch;
+  }
+
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-05);
+    margin-bottom: var(--spacing-09);
+  }
+
+  .stats article {
+    background: var(--color-white-1000);
+    border: 1px solid var(--theme-border-primary);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-1);
+    padding: var(--spacing-05);
+  }
+
+  .stats h2 {
+    color: var(--color-brand-green-700);
+    font-size: var(--font-size-700);
+    margin-bottom: var(--spacing-02);
+  }
+
+  .cards {
+    display: grid;
+    gap: var(--spacing-05);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .card {
+    background: var(--theme-background-primary);
+    border: 1px solid var(--theme-border-primary);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-1);
+    padding: var(--spacing-06);
+    transition: transform var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard),
+      border-color var(--duration-fast) var(--ease-standard);
+  }
+
+  .card:hover {
+    transform: translateY(var(--spacing--01));
+    box-shadow: var(--elevation-2);
+    border-color: var(--color-brand-green-400);
+  }
+
+  .card h3 {
+    color: var(--theme-text-primary);
+    margin-bottom: var(--spacing-02);
+  }
+
+  @media (max-width: 900px) {
+    .stats,
+    .cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

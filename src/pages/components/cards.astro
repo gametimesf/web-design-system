@@ -1,0 +1,679 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="cards | Gametime Design System"
+  description="CollectionCard, CMSContentCard, ValuePropCard, and LoginCard patterns based on Gametime." 
+>
+  <section class="page-header">
+    <h1>Cards</h1>
+    <p>Collection, content, value props, and login card patterns used across Gametime surfaces.</p>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Collection Card (Event)</h2>
+      <p>Carousel card with image, event metadata, and pricing.</p>
+    </div>
+
+    <div class="collection-grid">
+      <article class="collection-card">
+        <div class="collection-image">
+          <button class="favorite-btn" type="button" aria-label="Save event">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+              <g transform="translate(4, 4)">
+                <path
+                  d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                  fill="var(--color-white-1000)"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">Kendrick Lamar with SZA</h3>
+          <p class="collection-meta">Fri, Apr 17 · 8:00 PM · Madison Square Garden</p>
+          <p class="collection-price">From $116</p>
+        </div>
+      </article>
+
+      <article class="collection-card">
+        <div class="collection-image">
+          <button class="favorite-btn" type="button" aria-label="Save event">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+              <g transform="translate(4, 4)">
+                <path
+                  d="M10.9997 2.33331C12.044 2.33331 12.9162 2.67627 13.6162 3.3628C14.3162 4.04946 14.6663 4.90557 14.6663 5.93012C14.6663 5.98326 14.6644 6.03624 14.6624 6.08914L14.6663 6.09936L14.6624 6.10638C14.6446 6.5465 14.5598 6.97839 14.4079 7.40154C14.2356 7.88104 13.9329 8.40686 13.4997 8.97898C13.0663 9.55119 12.483 10.1972 11.7497 10.9166C11.0164 11.6359 10.0886 12.4915 8.96647 13.4833L7.99967 14.3333L7.03288 13.4833C5.91072 12.4915 4.98299 11.6359 4.24967 10.9166C3.51634 10.1972 2.93301 9.55119 2.49967 8.97898C2.06642 8.40686 1.76371 7.88104 1.59147 7.40154C1.41928 6.92204 1.33304 6.43141 1.33301 5.93012C1.33301 4.90557 1.68314 4.04946 2.38314 3.3628C3.0831 2.67627 3.95533 2.33331 4.99967 2.33331C5.57739 2.33331 6.12724 2.45313 6.64941 2.69287C7.17163 2.93265 7.6219 3.27041 7.99967 3.70638C8.37745 3.27041 8.82772 2.93265 9.34994 2.69287C9.87211 2.45313 10.422 2.33331 10.9997 2.33331Z"
+                  fill="var(--color-white-1000)"
+                />
+              </g>
+            </svg>
+          </button>
+          <span class="image-badge badge-last-call">⏱ LAST CALL</span>
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">Yankees vs. Red Sox</h3>
+          <p class="collection-meta">Sat, Jun 13 · 1:05 PM · Yankee Stadium</p>
+          <p class="collection-price">From $54</p>
+        </div>
+      </article>
+
+      <article class="collection-card">
+        <div class="collection-image">
+          <button class="favorite-btn" type="button" aria-label="Save event">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+              <g transform="translate(4, 4)">
+                <path
+                  d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                  fill="var(--color-white-1000)"
+                />
+              </g>
+            </svg>
+          </button>
+          <span class="image-badge badge-calendar">🎉 2026 YANKEES CALENDAR</span>
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">The Weeknd: After Hours Til Dawn</h3>
+          <p class="collection-meta">Sun, Jul 26 · 7:30 PM · MetLife Stadium</p>
+          <p class="collection-price">From $89</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Collection Card (Performer/Artist)</h2>
+      <p>Same card shell with performer context and event volume.</p>
+    </div>
+
+    <div class="collection-grid performer-grid">
+      <article class="collection-card">
+        <div class="collection-image performer-image">
+          <button class="favorite-btn" type="button" aria-label="Save artist">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+              <g transform="translate(4, 4)">
+                <path
+                  d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                  fill="var(--color-white-1000)"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">Tyler, The Creator</h3>
+          <p class="collection-meta">Next: Aug 8 · Barclays Center</p>
+          <p class="collection-price">14 Events</p>
+        </div>
+      </article>
+
+      <article class="collection-card">
+        <div class="collection-image performer-image">
+          <button class="favorite-btn" type="button" aria-label="Save artist">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+              <g transform="translate(4, 4)">
+                <path
+                  d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                  fill="var(--color-white-1000)"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <div class="collection-body">
+          <h3 class="collection-title">Sabrina Carpenter</h3>
+          <p class="collection-meta">Next: Sep 21 · Prudential Center</p>
+          <p class="collection-price">9 Events</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>CMS Content Card</h2>
+      <p>Editorial feature card used in “Can&apos;t Miss Events”.</p>
+    </div>
+
+    <div class="cms-grid">
+      <article class="cms-card cms-light">
+        <div class="cms-content">
+          <span class="cms-tag">HOT EVENT</span>
+          <h3>Must-See Shows in New York</h3>
+          <p>Handpicked events this week from iconic venues across the city.</p>
+          <button type="button">GET TICKETS</button>
+        </div>
+        <div class="cms-image" aria-hidden="true"></div>
+      </article>
+
+      <article class="cms-card cms-dark">
+        <div class="cms-content">
+          <span class="cms-tag">ON TOUR</span>
+          <h3>Stadium Runs You Can&apos;t Miss</h3>
+          <p>Big tours, premium views, and last-minute drops in your market.</p>
+          <button type="button">GET TICKETS</button>
+        </div>
+        <div class="cms-image" aria-hidden="true"></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Value Prop Card</h2>
+      <p>Benefit card with radial glow treatment and brand-green title.</p>
+    </div>
+
+    <div class="value-grid">
+      <article class="value-card value-green">
+        <p class="value-icon" aria-hidden="true">👀</p>
+        <h3>No Hidden Fees</h3>
+        <p>See your total up front, from seat selection to checkout.</p>
+      </article>
+
+      <article class="value-card value-cyan">
+        <p class="value-icon" aria-hidden="true">💪</p>
+        <h3>Lowest Price Guarantee</h3>
+        <p>Find it lower elsewhere and we&apos;ll credit you 110% of the difference.</p>
+        <a href="#">Learn More</a>
+      </article>
+
+      <article class="value-card value-blue">
+        <p class="value-icon" aria-hidden="true">✨</p>
+        <h3>Zone Deals</h3>
+        <p>Pick your price zone and unlock better value with surprise seats.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Login Card</h2>
+      <p>Centered auth card with hero media, headline, and dismiss controls.</p>
+    </div>
+
+    <div class="login-grid">
+      <article class="login-card dark-login">
+        <button class="login-close" type="button" aria-label="Dismiss login">✕</button>
+        <div class="login-hero" aria-hidden="true"></div>
+        <div class="login-content">
+          <h3>Welcome Back</h3>
+          <p>Log in to track prices, save favorites, and checkout faster.</p>
+          <div class="login-form-mock">
+            <span>Email address</span>
+          </div>
+          <button class="login-cta" type="button">Continue</button>
+          <button class="login-dismiss" type="button">Maybe Later</button>
+        </div>
+      </article>
+
+      <article class="login-card light-login">
+        <button class="login-close" type="button" aria-label="Dismiss login">✕</button>
+        <div class="login-icon" aria-hidden="true">🎟️</div>
+        <div class="login-content">
+          <h3>Get More With an Account</h3>
+          <p>Save events, access alerts, and jump into checkout in seconds.</p>
+          <div class="login-form-mock">
+            <span>Phone number</span>
+          </div>
+          <button class="login-cta" type="button">Continue</button>
+          <button class="login-dismiss" type="button">Not Now</button>
+        </div>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--spacing-09);
+  }
+
+  .page-header h1 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .page-header p {
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-300);
+    margin: var(--spacing-03) 0 0;
+    max-width: 70ch;
+  }
+
+  .doc-section + .doc-section {
+    margin-top: var(--spacing-10);
+  }
+
+  .section-heading {
+    margin-bottom: var(--spacing-05);
+  }
+
+  .section-heading h2 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+  }
+
+  .section-heading p {
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-200);
+    margin: var(--spacing-02) 0 0;
+  }
+
+  .collection-grid {
+    display: grid;
+    gap: var(--spacing-04);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .performer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-width: 760px;
+  }
+
+  .collection-card {
+    background: var(--color-brand-gray-900);
+    border: 1px solid var(--color-brand-gray-700);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-2);
+    overflow: hidden;
+  }
+
+  .collection-image {
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(
+      140deg,
+      var(--color-brand-gray-700),
+      var(--color-brand-gray-900)
+    );
+    position: relative;
+  }
+
+  .performer-image {
+    background: linear-gradient(140deg, var(--color-blue-800), var(--color-blue-1000));
+  }
+
+  .favorite-btn {
+    align-items: center;
+    background: var(--color-black-600);
+    border: 1px solid var(--color-white-300);
+    border-radius: var(--radius-round);
+    color: var(--color-white-1000);
+    cursor: default;
+    display: inline-flex;
+    font-size: var(--font-size-300);
+    height: 32px;
+    justify-content: center;
+    position: absolute;
+    right: var(--spacing-03);
+    top: var(--spacing-03);
+    width: 32px;
+  }
+
+  .image-badge {
+    border-radius: var(--radius-pill);
+    bottom: var(--spacing-03);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    left: var(--spacing-03);
+    letter-spacing: 0.02em;
+    padding: var(--spacing-01) var(--spacing-02);
+    position: absolute;
+  }
+
+  .badge-last-call {
+    background: var(--color-teal-700);
+  }
+
+  .badge-calendar {
+    background: var(--color-blue-900);
+  }
+
+  .collection-body {
+    display: grid;
+    gap: var(--spacing-01);
+    padding: var(--spacing-04);
+  }
+
+  .collection-title {
+    color: var(--color-white-1000);
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+  }
+
+  .collection-meta {
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-100);
+    margin: 0;
+  }
+
+  .collection-price {
+    color: var(--color-brand-green-400);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin: var(--spacing-01) 0 0;
+  }
+
+  .cms-grid {
+    display: grid;
+    gap: var(--spacing-04);
+  }
+
+  .cms-card {
+    border-radius: var(--radius-l);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    min-height: 230px;
+    overflow: hidden;
+  }
+
+  .cms-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: var(--spacing-06);
+  }
+
+  .cms-tag {
+    align-self: flex-start;
+    border: 1px solid currentColor;
+    border-radius: var(--radius-pill);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.06em;
+    padding: var(--spacing-01) var(--spacing-03);
+  }
+
+  .cms-content h3 {
+    font-size: var(--font-size-600);
+    font-weight: var(--font-weight-bold);
+    margin: var(--spacing-03) 0 var(--spacing-02);
+  }
+
+  .cms-content p {
+    font-size: var(--font-size-200);
+    margin: 0 0 var(--spacing-04);
+  }
+
+  .cms-content button {
+    align-self: flex-start;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: default;
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.04em;
+    padding: var(--spacing-02) var(--spacing-04);
+  }
+
+  .cms-image {
+    background: linear-gradient(120deg, var(--color-brand-gray-500), var(--color-brand-gray-700));
+    height: 100%;
+  }
+
+  .cms-light {
+    background: var(--color-brand-gray-100);
+    color: var(--color-brand-gray-900);
+  }
+
+  .cms-light .cms-content button {
+    background: var(--color-brand-gray-900);
+    color: var(--color-white-1000);
+  }
+
+  .cms-dark {
+    background: var(--color-yellow-1000);
+    color: var(--color-white-1000);
+  }
+
+  .cms-dark .cms-content button {
+    background: var(--color-white-1000);
+    color: var(--color-brand-gray-900);
+  }
+
+  .cms-dark .cms-image {
+    background: linear-gradient(120deg, var(--color-yellow-900), var(--color-brand-gray-900));
+  }
+
+  .value-grid {
+    display: grid;
+    gap: var(--spacing-04);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .value-card {
+    background: radial-gradient(
+      circle at bottom,
+      var(--value-glow),
+      var(--color-brand-gray-800) 72%
+    );
+    border: 1px solid var(--color-brand-gray-600);
+    border-radius: var(--radius-l);
+    min-height: 220px;
+    padding: var(--spacing-07);
+  }
+
+  .value-green {
+    --value-glow: var(--color-brand-green-700);
+  }
+
+  .value-cyan {
+    --value-glow: var(--color-teal-700);
+  }
+
+  .value-blue {
+    --value-glow: var(--color-blue-700);
+  }
+
+  .value-icon {
+    font-size: var(--font-size-600);
+    line-height: 1;
+    margin: 0 0 var(--spacing-04);
+  }
+
+  .value-card h3 {
+    color: var(--color-brand-green-400);
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semibold);
+    margin: 0 0 var(--spacing-02);
+  }
+
+  .value-card p {
+    color: var(--color-white-1000);
+    font-size: var(--font-size-200);
+    margin: 0;
+  }
+
+  .value-card a {
+    color: var(--color-blue-200);
+    display: inline-block;
+    font-size: var(--font-size-200);
+    margin-top: var(--spacing-04);
+    text-decoration: underline;
+  }
+
+  .login-grid {
+    display: grid;
+    gap: var(--spacing-04);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .login-card {
+    border: 1px solid var(--color-brand-gray-500);
+    display: flex;
+    flex-direction: column;
+    min-height: 480px;
+    position: relative;
+  }
+
+  .dark-login {
+    background: var(--color-brand-gray-800);
+    color: var(--color-white-1000);
+  }
+
+  .light-login {
+    background: var(--color-white-1000);
+    color: var(--color-brand-gray-900);
+  }
+
+  .login-close {
+    background: transparent;
+    border: none;
+    color: currentColor;
+    cursor: default;
+    font-size: var(--font-size-300);
+    position: absolute;
+    right: var(--spacing-04);
+    top: var(--spacing-04);
+    z-index: 1;
+  }
+
+  .login-hero {
+    background: linear-gradient(140deg, var(--color-blue-900), var(--color-brand-gray-900));
+    height: 160px;
+    width: 100%;
+  }
+
+  .login-icon {
+    align-items: center;
+    display: flex;
+    font-size: var(--font-size-700);
+    justify-content: center;
+    padding-top: var(--spacing-07);
+  }
+
+  .login-content {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: var(--spacing-03);
+    padding: var(--spacing-05);
+    text-align: center;
+  }
+
+  .login-content h3 {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .login-content p {
+    font-size: var(--font-size-200);
+    margin: 0;
+  }
+
+  .login-form-mock {
+    background: var(--color-white-1000);
+    border: 1px solid var(--color-brand-gray-300);
+    border-radius: var(--radius-s);
+    color: var(--color-brand-gray-500);
+    font-size: var(--font-size-200);
+    margin-top: var(--spacing-02);
+    padding: var(--spacing-03);
+    text-align: left;
+  }
+
+  .dark-login .login-form-mock {
+    background: var(--color-brand-gray-700);
+    border-color: var(--color-brand-gray-600);
+    color: var(--color-brand-gray-300);
+  }
+
+  .login-cta {
+    background: var(--color-brand-green-500);
+    border: none;
+    border-radius: var(--radius-pill);
+    color: var(--color-setlist-black-1000);
+    cursor: default;
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    margin-top: var(--spacing-03);
+    padding: var(--spacing-03) var(--spacing-04);
+  }
+
+  .login-dismiss {
+    background: transparent;
+    border: none;
+    color: currentColor;
+    cursor: default;
+    font-size: var(--font-size-200);
+    margin-top: auto;
+    padding: var(--spacing-02);
+  }
+
+  @media (max-width: 1200px) {
+    .collection-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .value-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 900px) {
+    .collection-grid,
+    .performer-grid,
+    .value-grid,
+    .login-grid,
+    .cms-card {
+      grid-template-columns: 1fr;
+    }
+
+    .cms-card {
+      min-height: 420px;
+    }
+
+    .cms-image {
+      min-height: 180px;
+    }
+  }
+</style>

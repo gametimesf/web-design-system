@@ -1,0 +1,331 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout
+  title="blog | Gametime Design System"
+  description="Blog-specific UI components patterned after gametime.co/blog."
+>
+  <section class="page-header">
+    <h1>Blog</h1>
+    <p>Featured hero, blog cards, category pills, and section headings for editorial surfaces.</p>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Featured Article Hero</h2>
+      <p>Two-column hero with category context, headline, and primary CTA.</p>
+    </div>
+
+    <article class="featured-hero">
+      <div class="featured-content">
+        <div class="featured-meta">
+          <span class="featured-date">Mar 18, 2026</span>
+          <span class="category-pill">Sports</span>
+        </div>
+        <h3>Why Rivalry Week Feels Bigger Than Ever</h3>
+        <p>
+          The biggest matchups of the season, rewatchable moments, and the energy that keeps
+          fans showing up early.
+        </p>
+        <button class="featured-cta" type="button">Read the Article</button>
+      </div>
+      <div class="featured-image" aria-hidden="true">
+        <img src="https://placehold.co/700x420?text=Featured+Hero" alt="" />
+      </div>
+    </article>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading row-heading">
+      <div>
+        <h2>Section Heading</h2>
+        <p>Latest News style heading with optional link alignment.</p>
+      </div>
+    </div>
+
+    <div class="section-header-demo">
+      <h3>Latest News</h3>
+      <a href="#">See All</a>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Category Pill</h2>
+      <p>Short, rounded label used to mark blog categories.</p>
+    </div>
+
+    <div class="pill-row">
+      <span class="category-pill">Sports</span>
+      <span class="category-pill">Music</span>
+      <span class="category-pill">Comedy &amp; Theater</span>
+      <span class="category-pill">Family</span>
+    </div>
+  </section>
+
+  <section class="doc-section">
+    <div class="section-heading">
+      <h2>Blog Card</h2>
+      <p>Editorial card pattern used in the Latest News grid.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="blog-image">
+          <img src="https://placehold.co/340x220?text=Blog+Card" alt="" />
+          <span class="glimpse-badge">GLIMPSE</span>
+        </div>
+        <div class="blog-meta">Mar 17, 2026 • 5 minute read</div>
+        <h3>How to Build the Perfect Weekend Lineup</h3>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image">
+          <img src="https://placehold.co/340x220?text=Blog+Card" alt="" />
+          <span class="glimpse-badge">GLIMPSE</span>
+        </div>
+        <div class="blog-meta">Mar 14, 2026 • 4 minute read</div>
+        <h3>The Big Tour Cities You Shouldn&apos;t Miss</h3>
+      </article>
+
+      <article class="blog-card">
+        <div class="blog-image">
+          <img src="https://placehold.co/340x220?text=Blog+Card" alt="" />
+          <span class="glimpse-badge">GLIMPSE</span>
+        </div>
+        <div class="blog-meta">Mar 10, 2026 • 6 minute read</div>
+        <h3>Playoff Tickets: The Moments That Sell Fast</h3>
+      </article>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--spacing-09);
+  }
+
+  .page-header h1 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .page-header p {
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-300);
+    margin: var(--spacing-03) 0 0;
+    max-width: 70ch;
+  }
+
+  .doc-section + .doc-section {
+    margin-top: var(--spacing-10);
+  }
+
+  .section-heading {
+    margin-bottom: var(--spacing-05);
+  }
+
+  .section-heading h2 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-semibold);
+    margin: 0;
+  }
+
+  .section-heading p {
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-200);
+    margin: var(--spacing-02) 0 0;
+  }
+
+  .featured-hero {
+    background: var(--color-white-1000);
+    border: 1px solid var(--color-brand-gray-200);
+    border-radius: var(--radius-l);
+    box-shadow: var(--elevation-2);
+    display: grid;
+    gap: var(--spacing-06);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    overflow: hidden;
+  }
+
+  .featured-content {
+    display: grid;
+    gap: var(--spacing-03);
+    padding: var(--spacing-08);
+  }
+
+  .featured-meta {
+    align-items: center;
+    display: flex;
+    gap: var(--spacing-03);
+  }
+
+  .featured-date {
+    color: var(--color-brand-gray-500);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.02em;
+  }
+
+  .featured-content h3 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-600);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .featured-content p {
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-300);
+    margin: 0;
+  }
+
+  .featured-cta {
+    align-self: flex-start;
+    background: var(--color-brand-green-500);
+    border: none;
+    border-radius: var(--radius-pill);
+    color: var(--color-setlist-black-1000);
+    cursor: default;
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--spacing-03) var(--spacing-05);
+  }
+
+  .featured-image {
+    background: var(--color-brand-gray-100);
+    display: grid;
+    place-items: center;
+  }
+
+  .featured-image img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .section-header-demo {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-03) 0;
+  }
+
+  .section-header-demo h3 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .section-header-demo a {
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+    text-decoration: none;
+  }
+
+  .pill-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-03);
+  }
+
+  .category-pill {
+    background: var(--color-brand-gray-900);
+    border-radius: var(--radius-pill);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    padding: var(--spacing-02) var(--spacing-04);
+    text-transform: uppercase;
+  }
+
+  .blog-grid {
+    display: grid;
+    gap: var(--spacing-05);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .blog-card {
+    background: var(--color-white-1000);
+    border: 1px solid var(--color-brand-gray-200);
+    border-radius: var(--radius-m);
+    box-shadow: var(--elevation-1);
+    display: grid;
+    gap: var(--spacing-03);
+    overflow: hidden;
+    padding-bottom: var(--spacing-04);
+  }
+
+  .blog-image {
+    position: relative;
+  }
+
+  .blog-image img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .glimpse-badge {
+    background: var(--color-brand-gray-900);
+    border-radius: var(--radius-s);
+    bottom: var(--spacing-03);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    left: var(--spacing-03);
+    letter-spacing: 0.14em;
+    padding: var(--spacing-01) var(--spacing-03);
+    position: absolute;
+  }
+
+  .blog-meta {
+    color: var(--color-brand-gray-500);
+    font-size: var(--font-size-200);
+    margin: 0 var(--spacing-04);
+  }
+
+  .blog-card h3 {
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    margin: 0 var(--spacing-04);
+    max-width: 24ch;
+  }
+
+  @media (max-width: 1100px) {
+    .featured-hero {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 800px) {
+    .featured-content {
+      padding: var(--spacing-06);
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .section-header-demo {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-02);
+    }
+  }
+</style>

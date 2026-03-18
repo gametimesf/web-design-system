@@ -1,0 +1,426 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const typeScale = [
+  {
+    token: 'font-size-700',
+    value: '32px',
+    usage: 'Display / hero',
+    var: '--font-size-700'
+  },
+  {
+    token: 'font-size-600',
+    value: '24px',
+    usage: 'Title md',
+    var: '--font-size-600'
+  },
+  {
+    token: 'font-size-500',
+    value: '20px',
+    usage: 'Title sm',
+    var: '--font-size-500'
+  },
+  {
+    token: 'font-size-400',
+    value: '18px',
+    usage: 'Body lg',
+    var: '--font-size-400'
+  },
+  {
+    token: 'font-size-300',
+    value: '16px',
+    usage: 'Body',
+    var: '--font-size-300'
+  },
+  {
+    token: 'font-size-200',
+    value: '14px',
+    usage: 'Body sm',
+    var: '--font-size-200'
+  },
+  {
+    token: 'font-size-100',
+    value: '12px',
+    usage: 'Label / caption',
+    var: '--font-size-100'
+  }
+];
+
+const weights = [
+  { token: 'font-weight-regular', value: '400', var: '--font-weight-regular' },
+  { token: 'font-weight-medium', value: '500', var: '--font-weight-medium' },
+  { token: 'font-weight-semibold', value: '600', var: '--font-weight-semibold' },
+  { token: 'font-weight-bold', value: '700', var: '--font-weight-bold' }
+];
+
+const lineHeights = [
+  { token: 'line-height-100', value: '1.2', var: '--line-height-100' },
+  { token: 'line-height-200', value: '1.35', var: '--line-height-200' },
+  { token: 'line-height-300', value: '1.5', var: '--line-height-300' },
+  { token: 'line-height-400', value: '1.65', var: '--line-height-400' }
+];
+
+const families = [
+  { token: 'font-family-sans', label: 'Sans Serif', var: '--font-family-sans' },
+  { token: 'font-family-mono', label: 'Monospace', var: '--font-family-mono' }
+];
+
+const specimenText = 'The quick brown fox jumps over the lazy dog.';
+const lineText =
+  'Good typography guides the reader through content with a consistent rhythm.\nLine height controls breathing room across paragraphs and labels.';
+const alphaNum = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789';
+---
+
+<Layout title="Typography | Gametime Design System" description="Typography token documentation.">
+  <div class="typo-page">
+    <header class="typo-hero">
+      <div>
+        <p class="eyebrow">Tokens</p>
+        <h1>Typography</h1>
+        <p class="lede">
+          Core type tokens for scale, weight, rhythm, and font families used across the
+          design system.
+        </p>
+      </div>
+      <div class="hero-sample">
+        <p class="hero-kicker">Specimen</p>
+        <p class="hero-type">Gametime creates momentum.</p>
+        <p class="hero-body">
+          Build layouts that feel confident, readable, and intentional on any screen.
+        </p>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Type Scale</h2>
+        <p>Tokens from display to caption, arranged largest to smallest.</p>
+      </div>
+      <div class="scale-list">
+        {typeScale.map((item) => (
+          <article class="scale-row">
+            <div class="scale-meta">
+              <p class="token">{item.token}</p>
+              <p class="value">{item.value}</p>
+              <p class="usage">{item.usage}</p>
+            </div>
+            <div class="scale-sample" style={`font-size: var(${item.var});`}>
+              {specimenText}
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Font Weights</h2>
+        <p>Same size specimen rendered across every weight token.</p>
+      </div>
+      <div class="weights-grid">
+        {weights.map((item) => (
+          <article class="weight-card" style={`font-weight: var(${item.var});`}>
+            <p class="token">{item.token}</p>
+            <p class="value">{item.value}</p>
+            <p class="weight-text">{specimenText}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Line Heights</h2>
+        <p>Multi-line paragraph sample to compare rhythm and density.</p>
+      </div>
+      <div class="line-grid">
+        {lineHeights.map((item) => (
+          <article class="line-card" style={`line-height: var(${item.var});`}>
+            <p class="token">{item.token}</p>
+            <p class="value">{item.value}</p>
+            <p class="line-text">{lineText}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Font Families</h2>
+        <p>Primary sans-serif and monospace stacks with alphabet samples.</p>
+      </div>
+      <div class="family-grid">
+        {families.map((item) => (
+          <article class="family-card" style={`font-family: var(${item.var});`}>
+            <p class="token">{item.token}</p>
+            <p class="value">{item.label}</p>
+            <p class="family-text">{alphaNum}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Combined Specimens</h2>
+        <p>Common component-scale pairings to guide hierarchy.</p>
+      </div>
+      <div class="combo-grid">
+        <article class="combo-card">
+          <p class="combo-label">Feature card</p>
+          <h3 class="combo-title">Season tickets, reimagined</h3>
+          <p class="combo-body">
+            Discover flexible plans and premium benefits designed for true fans.
+          </p>
+        </article>
+        <article class="combo-card">
+          <p class="combo-label">Modal</p>
+          <h3 class="combo-title">Confirm your seats</h3>
+          <p class="combo-body">
+            You can update your section, row, and accessibility preferences at any time.
+          </p>
+        </article>
+        <article class="combo-card">
+          <p class="combo-label">Marketing</p>
+          <h3 class="combo-title">Get closer to the action</h3>
+          <p class="combo-body">
+            New 2025 packages launch this week with exclusive access to team events.
+          </p>
+        </article>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .typo-page {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    padding-bottom: 64px;
+  }
+
+  .typo-hero {
+    display: grid;
+    gap: 32px;
+    padding: 40px 0 8px;
+    border-bottom: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+  }
+
+  .eyebrow {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: color-mix(in srgb, var(--color-text) 55%, transparent);
+    margin-bottom: 8px;
+  }
+
+  .typo-hero h1 {
+    font-size: var(--font-size-700);
+    line-height: var(--line-height-100);
+    margin-bottom: 12px;
+  }
+
+  .lede {
+    font-size: var(--font-size-300);
+    line-height: var(--line-height-300);
+    max-width: 520px;
+    color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  }
+
+  .hero-sample {
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    border-radius: 20px;
+    padding: 24px 28px;
+    background: color-mix(in srgb, var(--color-surface) 90%, transparent);
+  }
+
+  .hero-kicker {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: color-mix(in srgb, var(--color-text) 55%, transparent);
+    margin-bottom: 12px;
+  }
+
+  .hero-type {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-semibold);
+    line-height: var(--line-height-200);
+    margin-bottom: 8px;
+  }
+
+  .hero-body {
+    font-size: var(--font-size-200);
+    line-height: var(--line-height-300);
+    color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  }
+
+  .section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .section-head h2 {
+    font-size: var(--font-size-500);
+    margin-bottom: 6px;
+  }
+
+  .section-head p {
+    font-size: var(--font-size-200);
+    color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  }
+
+  .scale-list {
+    display: grid;
+    gap: 20px;
+  }
+
+  .scale-row {
+    display: grid;
+    gap: 12px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+  }
+
+  .scale-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    align-items: baseline;
+  }
+
+  .token {
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .value {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  }
+
+  .usage {
+    font-size: var(--font-size-100);
+    color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  }
+
+  .scale-sample {
+    line-height: var(--line-height-200);
+  }
+
+  .weights-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .weight-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 95%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .weight-text {
+    font-size: var(--font-size-300);
+    line-height: var(--line-height-200);
+  }
+
+  .line-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  }
+
+  .line-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .line-text {
+    white-space: pre-line;
+    font-size: var(--font-size-200);
+  }
+
+  .family-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .family-card {
+    border-radius: 14px;
+    padding: 18px 20px;
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 95%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .family-text {
+    font-size: var(--font-size-200);
+    line-height: var(--line-height-200);
+  }
+
+  .combo-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .combo-card {
+    border-radius: 16px;
+    padding: 20px 22px;
+    border: 1px solid color-mix(in srgb, var(--color-text) 10%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 92%, transparent);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .combo-label {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  }
+
+  .combo-title {
+    font-size: var(--font-size-400);
+    line-height: var(--line-height-200);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .combo-body {
+    font-size: var(--font-size-200);
+    line-height: var(--line-height-300);
+    color: color-mix(in srgb, var(--color-text) 70%, transparent);
+  }
+
+  @media (min-width: 900px) {
+    .typo-hero {
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      align-items: end;
+    }
+
+    .scale-row {
+      grid-template-columns: minmax(200px, 220px) minmax(0, 1fr);
+      align-items: center;
+    }
+  }
+</style>

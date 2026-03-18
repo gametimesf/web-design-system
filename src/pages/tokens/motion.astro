@@ -1,0 +1,400 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Motion | Gametime Design System" description="Motion token documentation.">
+  <div class="page">
+    <header class="page-header">
+      <p class="eyebrow">Tokens</p>
+      <h1>Motion</h1>
+      <p class="lead">
+        Motion tokens define consistent easing curves and duration scales so animations feel
+        cohesive across the system.
+      </p>
+    </header>
+
+    <section class="section" aria-labelledby="easing">
+      <div class="section-head">
+        <h2 id="easing">Easing Functions</h2>
+        <p>
+          Use easing curves to shape how motion starts and ends. Hover each demo to feel the
+          curve in action.
+        </p>
+      </div>
+      <div class="easing-grid">
+        <article class="easing-card" style="--ease-token: var(--ease-standard);">
+          <div class="easing-meta">
+            <div>
+              <p class="token">--ease-standard</p>
+              <h3>Standard</h3>
+            </div>
+            <span class="bezier">cubic-bezier(0.2, 0, 0, 1)</span>
+          </div>
+          <p class="description">Default for most UI transitions and subtle feedback.</p>
+          <div class="track" aria-label="Standard easing demo">
+            <span class="square"></span>
+            <span class="track-label">Hover to play</span>
+          </div>
+        </article>
+
+        <article class="easing-card" style="--ease-token: var(--ease-emphasized);">
+          <div class="easing-meta">
+            <div>
+              <p class="token">--ease-emphasized</p>
+              <h3>Emphasized</h3>
+            </div>
+            <span class="bezier">cubic-bezier(0.2, 0, 0, 1.1)</span>
+          </div>
+          <p class="description">Reserved for key moments, confirmations, and focus shifts.</p>
+          <div class="track" aria-label="Emphasized easing demo">
+            <span class="square"></span>
+            <span class="track-label">Hover to play</span>
+          </div>
+        </article>
+
+        <article class="easing-card" style="--ease-token: var(--ease-decelerate);">
+          <div class="easing-meta">
+            <div>
+              <p class="token">--ease-decelerate</p>
+              <h3>Decelerate</h3>
+            </div>
+            <span class="bezier">cubic-bezier(0, 0, 0.2, 1)</span>
+          </div>
+          <p class="description">Best for elements entering or settling into place.</p>
+          <div class="track" aria-label="Decelerate easing demo">
+            <span class="square"></span>
+            <span class="track-label">Hover to play</span>
+          </div>
+        </article>
+
+        <article class="easing-card" style="--ease-token: var(--ease-accelerate);">
+          <div class="easing-meta">
+            <div>
+              <p class="token">--ease-accelerate</p>
+              <h3>Accelerate</h3>
+            </div>
+            <span class="bezier">cubic-bezier(0.3, 0, 1, 1)</span>
+          </div>
+          <p class="description">Ideal for elements leaving or being dismissed.</p>
+          <div class="track" aria-label="Accelerate easing demo">
+            <span class="square"></span>
+            <span class="track-label">Hover to play</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="duration">
+      <div class="section-head">
+        <h2 id="duration">Duration Scale</h2>
+        <p>Use consistent timing values to communicate speed and hierarchy.</p>
+      </div>
+      <div class="duration-stack">
+        <div class="duration-row">
+          <div class="duration-meta">
+            <p class="token">--duration-fast</p>
+            <h3>Fast</h3>
+            <span class="value">120ms</span>
+          </div>
+          <div class="duration-bar" style="--duration-token: var(--duration-fast);"></div>
+        </div>
+        <div class="duration-row">
+          <div class="duration-meta">
+            <p class="token">--duration-medium</p>
+            <h3>Medium</h3>
+            <span class="value">220ms</span>
+          </div>
+          <div class="duration-bar" style="--duration-token: var(--duration-medium);"></div>
+        </div>
+        <div class="duration-row">
+          <div class="duration-meta">
+            <p class="token">--duration-slow</p>
+            <h3>Slow</h3>
+            <span class="value">360ms</span>
+          </div>
+          <div class="duration-bar" style="--duration-token: var(--duration-slow);"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="combined">
+      <div class="section-head">
+        <h2 id="combined">Combined Motion</h2>
+        <p>A realistic interaction that uses both the easing and duration tokens together.</p>
+      </div>
+      <div class="combo-demo" aria-label="Combined motion demo">
+        <button class="combo-button" type="button">Preview details</button>
+        <div class="combo-panel">
+          <div class="panel-header">
+            <span class="panel-title">Match Summary</span>
+            <span class="panel-pill">Live</span>
+          </div>
+          <p class="panel-body">
+            Reveal panels with a gentle decelerate curve and medium duration to feel grounded
+            but responsive.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    display: grid;
+    gap: var(--spacing-10);
+  }
+
+  .page-header {
+    display: grid;
+    gap: var(--spacing-04);
+  }
+
+  .eyebrow {
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-brand-gray-500);
+  }
+
+  .lead {
+    max-width: 520px;
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-300);
+  }
+
+  .section {
+    display: grid;
+    gap: var(--spacing-06);
+  }
+
+  .section-head {
+    display: grid;
+    gap: var(--spacing-02);
+    max-width: 640px;
+  }
+
+  .section-head p {
+    color: var(--color-brand-gray-600);
+  }
+
+  .easing-grid {
+    display: grid;
+    gap: var(--spacing-06);
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .easing-card {
+    border: 1px solid var(--color-brand-gray-200);
+    background: var(--color-white-1000);
+    border-radius: var(--radius-l);
+    padding: var(--spacing-05);
+    display: grid;
+    gap: var(--spacing-04);
+    box-shadow: var(--elevation-1);
+    transition: border var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard);
+  }
+
+  .easing-card:hover {
+    border-color: var(--color-brand-green-300);
+    box-shadow: var(--elevation-2);
+  }
+
+  .easing-meta {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-04);
+    align-items: flex-start;
+  }
+
+  .token {
+    color: var(--color-brand-green-700);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .bezier {
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-500);
+  }
+
+  .description {
+    color: var(--color-brand-gray-600);
+  }
+
+  .track {
+    --track-padding: var(--spacing-02);
+    --square-size: 28px;
+    --slide-distance: calc(100% - var(--square-size) - (var(--track-padding) * 2));
+    position: relative;
+    border-radius: var(--radius-pill);
+    background: var(--color-brand-gray-100);
+    padding: var(--track-padding);
+    height: 44px;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-03);
+    overflow: hidden;
+  }
+
+  .track-label {
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-500);
+  }
+
+  .square {
+    width: var(--square-size);
+    height: var(--square-size);
+    border-radius: var(--radius-m);
+    background: var(--color-brand-green-500);
+    display: block;
+    transform: translateX(0);
+    transition: transform var(--duration-medium) var(--ease-token);
+  }
+
+  .easing-card:hover .square {
+    transform: translateX(var(--slide-distance));
+  }
+
+  .duration-stack {
+    display: grid;
+    gap: var(--spacing-05);
+  }
+
+  .duration-row {
+    display: grid;
+    gap: var(--spacing-03);
+  }
+
+  .duration-meta {
+    display: flex;
+    align-items: baseline;
+    gap: var(--spacing-03);
+  }
+
+  .duration-meta h3 {
+    margin: 0;
+  }
+
+  .value {
+    color: var(--color-brand-gray-500);
+    font-size: var(--font-size-100);
+  }
+
+  .duration-bar {
+    position: relative;
+    height: 14px;
+    border-radius: var(--radius-pill);
+    background: var(--color-brand-gray-100);
+    overflow: hidden;
+  }
+
+  .duration-bar::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    background: linear-gradient(
+      90deg,
+      var(--color-brand-green-300) 0%,
+      var(--color-brand-green-500) 50%,
+      var(--color-brand-green-600) 100%
+    );
+    transform-origin: left;
+    animation: fill var(--duration-token) var(--ease-standard) infinite alternate;
+  }
+
+  @keyframes fill {
+    from {
+      transform: scaleX(0.1);
+    }
+    to {
+      transform: scaleX(1);
+    }
+  }
+
+  .combo-demo {
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-brand-gray-200);
+    background: var(--color-white-1000);
+    padding: var(--spacing-06);
+    display: grid;
+    gap: var(--spacing-05);
+    max-width: 560px;
+    box-shadow: var(--elevation-1);
+  }
+
+  .combo-button {
+    align-self: start;
+    border: none;
+    border-radius: var(--radius-pill);
+    padding: var(--spacing-03) var(--spacing-05);
+    background: var(--theme-light-button-default-primary);
+    color: var(--theme-light-text-button-on-primary);
+    font-weight: var(--font-weight-semibold);
+    cursor: pointer;
+    transition: transform var(--duration-fast) var(--ease-standard),
+      box-shadow var(--duration-fast) var(--ease-standard),
+      background var(--duration-fast) var(--ease-standard);
+    box-shadow: var(--elevation-1);
+  }
+
+  .combo-demo:hover .combo-button {
+    transform: translateY(-2px);
+    box-shadow: var(--elevation-2);
+    background: var(--theme-light-button-default-primary-hover);
+  }
+
+  .combo-panel {
+    background: var(--color-brand-gray-050);
+    border-radius: var(--radius-m);
+    padding: var(--spacing-05);
+    border: 1px solid var(--color-brand-gray-200);
+    transform: translateY(12px);
+    opacity: 0;
+    transition: transform var(--duration-medium) var(--ease-decelerate),
+      opacity var(--duration-fast) var(--ease-standard);
+  }
+
+  .combo-demo:hover .combo-panel {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-03);
+  }
+
+  .panel-title {
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .panel-pill {
+    font-size: var(--font-size-100);
+    padding: var(--spacing-01) var(--spacing-03);
+    border-radius: var(--radius-pill);
+    background: var(--color-brand-green-100);
+    color: var(--color-brand-green-800);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .panel-body {
+    color: var(--color-brand-gray-600);
+    margin: 0;
+  }
+
+  @media (max-width: 720px) {
+    .easing-meta {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .combo-demo {
+      max-width: 100%;
+    }
+  }
+</style>

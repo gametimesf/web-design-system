@@ -1,0 +1,299 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const elevations = [
+  {
+    level: 1,
+    token: '--elevation-1',
+    value: '0 1px 2px 0 #0103144d, 0 1px 3px 1px #01031426',
+  },
+  {
+    level: 2,
+    token: '--elevation-2',
+    value: '0 1px 2px 0 #0103144d, 0 2px 6px 2px #01031426',
+  },
+  {
+    level: 3,
+    token: '--elevation-3',
+    value: '0 1px 3px 0 #0103144d, 0 4px 8px 3px #01031426',
+  },
+  {
+    level: 4,
+    token: '--elevation-4',
+    value: '0 2px 3px 0 #0103144d, 0 6px 10px 4px #01031426',
+  },
+  {
+    level: 5,
+    token: '--elevation-5',
+    value: '0 4px 4px 0 #0103144d, 0 8px 12px 6px #01031426',
+  },
+];
+
+const usageGuidelines = [
+  { level: 1, use: 'Hover states, cards' },
+  { level: 2, use: 'Dropdowns, popovers' },
+  { level: 3, use: 'Drawers, panels' },
+  { level: 4, use: 'Modals, dialogs' },
+  { level: 5, use: 'Toasts, overlays' },
+];
+---
+
+<Layout title="Elevation | Gametime Design System" description="Elevation token documentation.">
+  <header class="page-header">
+    <h1>Elevation</h1>
+    <p>
+      Elevation tokens provide consistent depth cues across surfaces. Use them to
+      communicate hierarchy and focus while keeping shadows aligned with the
+      system scale.
+    </p>
+  </header>
+
+  <section class="section elevation-scale">
+    <div class="section-header">
+      <h2>Elevation Scale</h2>
+      <p>Each card uses the corresponding elevation token.</p>
+    </div>
+
+    <div class="elevation-grid">
+      {elevations.map((elevation) => (
+        <article class="elevation-card" style={`box-shadow: var(${elevation.token});`}>
+          <div class="elevation-meta">
+            <span class="elevation-level">Level {elevation.level}</span>
+            <span class="elevation-token">{elevation.token}</span>
+          </div>
+          <p class="elevation-value">{elevation.value}</p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Usage Guidelines</h2>
+      <p>Map elevation to common UI patterns for predictable depth.</p>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Elevation</th>
+            <th scope="col">Recommended use</th>
+          </tr>
+        </thead>
+        <tbody>
+          {usageGuidelines.map((row) => (
+            <tr>
+              <td>Level {row.level}</td>
+              <td>{row.use}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Interactive Demo</h2>
+      <p>Hover over the tile to see the shadow climb through the scale.</p>
+    </div>
+
+    <div class="demo-wrap">
+      <div class="demo-card" role="button" aria-label="Hover to cycle elevations" tabindex="0">
+        <div class="demo-content">
+          <span class="demo-title">Hover to Elevate</span>
+          <span class="demo-caption">Elevation 1 → 5</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .page-header {
+    display: grid;
+    gap: var(--spacing-03);
+    max-width: 720px;
+  }
+
+  .page-header p {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-300);
+  }
+
+  .section {
+    margin-top: var(--spacing-10);
+  }
+
+  .section-header {
+    display: grid;
+    gap: var(--spacing-02);
+    margin-bottom: var(--spacing-06);
+  }
+
+  .section-header h2 {
+    font-size: var(--font-size-500);
+  }
+
+  .section-header p {
+    color: var(--theme-light-text-default-secondary);
+  }
+
+  .elevation-scale {
+    background: var(--color-brand-gray-100);
+    padding: var(--spacing-07);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-brand-gray-200);
+  }
+
+  .elevation-grid {
+    display: grid;
+    gap: var(--spacing-06);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  }
+
+  .elevation-card {
+    background: var(--color-white-1000);
+    border-radius: var(--radius-m);
+    border: 1px solid var(--color-brand-gray-200);
+    padding: var(--spacing-05);
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform var(--duration-fast) var(--ease-standard);
+  }
+
+  .elevation-card:hover {
+    transform: translateY(-4px);
+  }
+
+  .elevation-meta {
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .elevation-level {
+    font-size: var(--font-size-400);
+    font-weight: var(--font-weight-semibold);
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .elevation-token {
+    font-size: var(--font-size-200);
+    color: var(--theme-light-text-default-tertiary);
+  }
+
+  .elevation-value {
+    font-size: var(--font-size-200);
+    color: var(--theme-light-text-default-secondary);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+      "Courier New", monospace;
+  }
+
+  .table-wrap {
+    background: var(--color-white-1000);
+    border-radius: var(--radius-m);
+    border: 1px solid var(--color-brand-gray-200);
+    overflow: hidden;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-200);
+  }
+
+  thead {
+    background: var(--color-brand-gray-050);
+    text-align: left;
+  }
+
+  th,
+  td {
+    padding: var(--spacing-04) var(--spacing-05);
+    border-bottom: 1px solid var(--color-brand-gray-200);
+  }
+
+  tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  td:first-child {
+    font-weight: var(--font-weight-semibold);
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .demo-wrap {
+    display: grid;
+    place-items: start;
+  }
+
+  .demo-card {
+    width: min(360px, 100%);
+    min-height: 180px;
+    background: var(--color-white-1000);
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-brand-gray-200);
+    box-shadow: var(--elevation-1);
+    padding: var(--spacing-07);
+    transition: box-shadow var(--duration-fast) var(--ease-standard),
+      transform var(--duration-fast) var(--ease-standard);
+    display: grid;
+    align-items: center;
+  }
+
+  .demo-card:hover,
+  .demo-card:focus-visible {
+    animation: elevation-cycle 1100ms var(--ease-standard) infinite;
+    transform: translateY(-4px);
+  }
+
+  .demo-content {
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .demo-title {
+    font-size: var(--font-size-500);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .demo-caption {
+    font-size: var(--font-size-200);
+    color: var(--theme-light-text-default-tertiary);
+  }
+
+  @keyframes elevation-cycle {
+    0% {
+      box-shadow: var(--elevation-1);
+    }
+    25% {
+      box-shadow: var(--elevation-2);
+    }
+    50% {
+      box-shadow: var(--elevation-3);
+    }
+    75% {
+      box-shadow: var(--elevation-4);
+    }
+    100% {
+      box-shadow: var(--elevation-5);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .elevation-card,
+    .demo-card {
+      transition: none;
+    }
+
+    .demo-card:hover,
+    .demo-card:focus-visible {
+      animation: none;
+      box-shadow: var(--elevation-3);
+      transform: none;
+    }
+  }
+</style>

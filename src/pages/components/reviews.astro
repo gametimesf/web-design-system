@@ -1,0 +1,375 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const homepageReviews = [
+  {
+    title: 'First time buying NFL tickets',
+    review:
+      'Checkout was fast, seats were legit, and the price beat every other site I tried.',
+    stars: 5,
+  },
+  {
+    title: 'Great prices on last-minute seats',
+    review:
+      'I grabbed lower bowl tickets 30 minutes before tipoff and saved a ton.',
+    stars: 4,
+  },
+  {
+    title: 'Best app for tickets',
+    review:
+      'The map view makes it easy to pick seats and the fees are super clear.',
+    stars: 5,
+  },
+];
+
+const picksReviews = [
+  {
+    title: 'Great Prices',
+    review:
+      'I locked in a same-day deal for the concert and walked in with no hassle.',
+    stars: 5,
+    date: 'Jan 18, 2024',
+  },
+  {
+    title: 'Smooth entry at the gate',
+    review:
+      'Barcode loaded instantly and the staff scanned us in without a wait.',
+    stars: 4,
+    date: 'Feb 02, 2024',
+  },
+  {
+    title: 'Perfect for weekend plans',
+    review:
+      'Found great seats for the game on Friday night and surprised my friends.',
+    stars: 5,
+    date: 'Mar 09, 2024',
+  },
+];
+
+const createStars = (count: number) => '⭐'.repeat(count);
+---
+<Layout title="reviews | Gametime Design System" description="Component documentation.">
+  <div class="page">
+    <header class="page-header">
+      <span class="eyebrow">Components</span>
+      <h1>Reviews</h1>
+      <p>
+        The SimpleReviewCard pattern highlights real fan feedback in a compact, high-contrast
+        format.
+      </p>
+    </header>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Section Header Pattern</h2>
+        <p>Use the hero copy from gametime.co to introduce the review grid.</p>
+      </div>
+      <div class="review-hero">
+        <h3>See what fans like you are saying.</h3>
+        <p>500K+ happy fans. Millions of tickets sold. Only one Gametime.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>SimpleReviewCard</h2>
+        <p>Dark, rounded cards with star ratings and quoted feedback.</p>
+      </div>
+
+      <div class="variant">
+        <div class="variant-header">
+          <h3>Homepage Variant</h3>
+          <span class="variant-tag">page="homepage" / shouldShowDate=false</span>
+        </div>
+        <div class="reviews-grid">
+          {homepageReviews.map((review) => (
+            <article class="review-card review-card--homepage">
+              <div class="review-card__header">
+                <span class="review-card__stars">{createStars(review.stars)}</span>
+              </div>
+              <div class="review-card__content">
+                <span class="review-card__title">{review.title}</span>
+                <span class="review-card__body">&quot;{review.review}&quot;</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+
+      <div class="variant">
+        <div class="variant-header">
+          <h3>Picks Variant</h3>
+          <span class="variant-tag">page="picks" / shouldShowDate=true</span>
+        </div>
+        <div class="reviews-grid">
+          {picksReviews.map((review) => (
+            <article class="review-card review-card--picks">
+              <div class="review-card__header">
+                <span class="review-card__stars">{createStars(review.stars)}</span>
+                <span class="review-card__date">{review.date}</span>
+              </div>
+              <div class="review-card__content">
+                <span class="review-card__title">{review.title}</span>
+                <span class="review-card__body">&quot;{review.review}&quot;</span>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Props Reference</h2>
+        <p>Match the SimpleReviewCard API in the Gametime app.</p>
+      </div>
+      <div class="table-wrap">
+        <table class="props-table">
+          <thead>
+            <tr>
+              <th>Prop</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>review</code></td>
+              <td>
+                <code>{`{ title: string; review: string; stars: number; date?: string }`}</code>
+              </td>
+              <td>Review content and metadata shown in the card.</td>
+            </tr>
+            <tr>
+              <td><code>page</code></td>
+              <td><code>'homepage' | 'picks'</code></td>
+              <td>Controls spacing and card tone for each page context.</td>
+            </tr>
+            <tr>
+              <td><code>shouldShowDate</code></td>
+              <td><code>boolean</code></td>
+              <td>Shows the review date in the top-right when true.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .page {
+    display: grid;
+    gap: var(--spacing-10);
+    color: var(--color-brand-gray-900);
+    font-family: var(--font-family-sans);
+  }
+
+  .page-header {
+    display: grid;
+    gap: var(--spacing-04);
+    max-width: 720px;
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-brand-gray-500);
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-800);
+    margin: 0;
+    color: var(--color-brand-gray-900);
+  }
+
+  .page-header p {
+    margin: 0;
+    font-size: var(--font-size-400);
+    color: var(--color-brand-gray-600);
+  }
+
+  .section {
+    display: grid;
+    gap: var(--spacing-06);
+  }
+
+  .section-header h2 {
+    margin: 0 0 var(--spacing-02);
+    font-size: var(--font-size-600);
+    color: var(--color-brand-gray-900);
+  }
+
+  .section-header p {
+    margin: 0;
+    color: var(--color-brand-gray-600);
+    font-size: var(--font-size-300);
+  }
+
+  .review-hero {
+    padding: var(--spacing-08);
+    border-radius: var(--radius-l);
+    background: var(--color-brand-gray-900);
+    color: var(--color-white-1000);
+    text-align: center;
+    display: grid;
+    gap: var(--spacing-03);
+  }
+
+  .review-hero h3 {
+    margin: 0;
+    font-size: var(--font-size-700);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .review-hero p {
+    margin: 0;
+    font-size: var(--font-size-400);
+    color: var(--color-brand-gray-200);
+  }
+
+  .variant {
+    display: grid;
+    gap: var(--spacing-05);
+  }
+
+  .variant-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-03);
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .variant-header h3 {
+    margin: 0;
+    font-size: var(--font-size-500);
+  }
+
+  .variant-tag {
+    font-size: var(--font-size-200);
+    color: var(--color-brand-gray-600);
+    background: var(--color-brand-gray-100);
+    border: 1px solid var(--color-brand-gray-200);
+    padding: var(--spacing-01) var(--spacing-03);
+    border-radius: var(--radius-pill);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-05);
+  }
+
+  .review-card {
+    background: var(--color-brand-gray-900);
+    border: 1px solid var(--color-brand-gray-700);
+    border-radius: var(--radius-l);
+    padding: var(--spacing-05);
+    color: var(--color-white-1000);
+    display: grid;
+    gap: var(--spacing-04);
+    min-height: 200px;
+  }
+
+  .review-card--homepage {
+    box-shadow: 0 12px 24px var(--color-black-200);
+  }
+
+  .review-card--picks {
+    background: var(--color-brand-gray-800);
+  }
+
+  .review-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-03);
+  }
+
+  .review-card__stars {
+    font-size: var(--font-size-400);
+    letter-spacing: 0.08em;
+  }
+
+  .review-card__date {
+    font-size: var(--font-size-200);
+    color: var(--color-brand-gray-300);
+  }
+
+  .review-card__content {
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .review-card__title {
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-400);
+  }
+
+  .review-card__body {
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-300);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .table-wrap {
+    overflow-x: auto;
+    border-radius: var(--radius-m);
+    border: 1px solid var(--color-brand-gray-200);
+    background: var(--color-white-1000);
+  }
+
+  .props-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-300);
+  }
+
+  .props-table th,
+  .props-table td {
+    text-align: left;
+    padding: var(--spacing-03) var(--spacing-04);
+    border-bottom: 1px solid var(--color-brand-gray-200);
+    vertical-align: top;
+  }
+
+  .props-table th {
+    background: var(--color-brand-gray-050);
+    color: var(--color-brand-gray-700);
+    font-size: var(--font-size-200);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .props-table td code {
+    font-size: var(--font-size-200);
+    color: var(--color-brand-gray-800);
+    background: var(--color-brand-gray-100);
+    padding: 2px 6px;
+    border-radius: var(--radius-s);
+  }
+
+  @media (max-width: 1100px) {
+    .reviews-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 720px) {
+    .reviews-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    .review-hero {
+      text-align: left;
+    }
+
+    .page-header h1 {
+      font-size: var(--font-size-700);
+    }
+  }
+</style>

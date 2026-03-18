@@ -1,0 +1,610 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const categoryCards = [
+  { title: 'NFL Football', tint: 'var(--color-purple-700)' },
+  { title: 'NBA Basketball', tint: 'var(--color-teal-700)' },
+  { title: 'MLB Baseball', tint: 'var(--color-brand-green-700)' },
+  { title: 'NHL Hockey', tint: 'var(--color-blue-700)' },
+  { title: 'Concerts', tint: 'var(--color-red-700)' },
+  { title: 'NCAA Football', tint: 'var(--color-yellow-700)' },
+  { title: 'Comedy', tint: 'var(--color-slate-700)' },
+  { title: 'NCAA Basketball', tint: 'var(--color-purple-800)' },
+];
+---
+
+<Layout
+  title="Hero & Banners | Gametime Design System"
+  description="Documentation and visual references for HeroSection, PromoBanner, category grid, and app promo."
+>
+  <section class="docs-header">
+    <h1>Hero & Banners</h1>
+    <p>Performer and venue hero patterns, top-of-page announcements, category surfaces, and app download promotion.</p>
+  </section>
+
+  <section class="docs-section">
+    <header class="section-header">
+      <h2>HeroSection</h2>
+      <p>Full-bleed performer/venue page hero with image, gradient overlay, breadcrumb, title, and favorite action.</p>
+    </header>
+
+    <div class="hero-stack">
+      <article class="hero-demo hero-with-logo" aria-label="HeroSection with hero logo">
+        <div class="hero-image" role="img" aria-label="Dark placeholder hero image"></div>
+        <div class="hero-gradient"></div>
+
+        <button class="hero-favorite" type="button" aria-label="Add to favorites">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+            <g transform="translate(4, 4)">
+              <path
+                d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                fill="var(--color-white-1000)"
+              />
+            </g>
+          </svg>
+        </button>
+
+        <div class="hero-content-wrap">
+          <div class="hero-logo" aria-label="Hero logo placeholder">LOGO</div>
+          <div class="hero-content">
+            <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+              <span>GAMETIME</span>
+              <span class="separator">/</span>
+              <span>NBA BASKETBALL</span>
+            </nav>
+            <h3>Detroit Pistons Tickets</h3>
+          </div>
+        </div>
+      </article>
+
+      <article class="hero-demo" aria-label="HeroSection without hero logo">
+        <div class="hero-image" role="img" aria-label="Dark placeholder hero image"></div>
+        <div class="hero-gradient"></div>
+
+        <button class="hero-favorite" type="button" aria-label="Add to favorites">
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <circle cx="12" cy="12" r="12" fill="var(--color-black-900)" fill-opacity="0.5" />
+            <g transform="translate(4, 4)">
+              <path
+                d="M8.00001 14.3333L7.03334 13.4831C5.91112 12.4913 4.98334 11.6357 4.25001 10.9164C3.51668 10.197 2.93334 9.55124 2.50001 8.97903C2.06668 8.40682 1.7639 7.88094 1.59168 7.40137C1.41945 6.92181 1.33334 6.43134 1.33334 5.92998C1.33334 4.90546 1.68334 4.04987 2.38334 3.36322C3.08334 2.67658 3.95557 2.33325 5.00001 2.33325C5.57779 2.33325 6.12779 2.45314 6.65001 2.69292C7.17223 2.93271 7.62223 3.27058 8.00001 3.70655C8.37779 3.27058 8.82779 2.93271 9.35001 2.69292C9.87223 2.45314 10.4222 2.33325 11 2.33325C12.0445 2.33325 12.9167 2.67658 13.6167 3.36322C14.3167 4.04987 14.6667 4.90546 14.6667 5.92998C14.6667 6.43134 14.5806 6.92181 14.4083 7.40137C14.2361 7.88094 13.9333 8.40682 13.5 8.97903C13.0667 9.55124 12.4833 10.197 11.75 10.9164C11.0167 11.6357 10.0889 12.4913 8.96668 13.4831L8.00001 14.3333ZM8.00001 12.5676C9.06668 11.6303 9.94446 10.8264 10.6333 10.1561C11.3222 9.48584 11.8667 8.90273 12.2667 8.40682C12.6667 7.91091 12.9445 7.46949 13.1 7.08257C13.2556 6.69565 13.3333 6.31145 13.3333 5.92998C13.3333 5.27603 13.1111 4.73107 12.6667 4.2951C12.2222 3.85914 11.6667 3.64115 11 3.64115C10.4778 3.64115 9.99446 3.78557 9.55001 4.0744C9.10557 4.36322 8.80001 4.73107 8.63334 5.17794H7.36668C7.20001 4.73107 6.89445 4.36322 6.45001 4.0744C6.00557 3.78557 5.52223 3.64115 5.00001 3.64115C4.33334 3.64115 3.77779 3.85914 3.33334 4.2951C2.8889 4.73107 2.66668 5.27603 2.66668 5.92998C2.66668 6.31145 2.74445 6.69565 2.90001 7.08257C3.05557 7.46949 3.33334 7.91091 3.73334 8.40682C4.13334 8.90273 4.67779 9.48584 5.36668 10.1561C6.05557 10.8264 6.93334 11.6303 8.00001 12.5676Z"
+                fill="var(--color-white-1000)"
+              />
+            </g>
+          </svg>
+        </button>
+
+        <div class="hero-content-wrap">
+          <div class="hero-content">
+            <nav class="hero-breadcrumb" aria-label="Breadcrumb">
+              <span>GAMETIME</span>
+              <span class="separator">/</span>
+              <span>NBA BASKETBALL</span>
+            </nav>
+            <h3>Detroit Pistons Tickets</h3>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="docs-section">
+    <header class="section-header">
+      <h2>PromoBanner</h2>
+      <p>Top announcement bar with centered message, optional link, and dismiss action.</p>
+    </header>
+
+    <div class="banner-stack">
+      <article class="promo-banner" aria-label="Promo banner with link">
+        <p>
+          Prices may increase based on demand.
+          <a href="#">Learn more</a>
+        </p>
+        <button type="button" aria-label="Dismiss notification">&times;</button>
+      </article>
+
+      <article class="promo-banner" aria-label="Promo banner without link">
+        <p>Claim up to 10% off your first purchase in the app.</p>
+        <button type="button" aria-label="Dismiss notification">&times;</button>
+      </article>
+    </div>
+  </section>
+
+  <section class="docs-section">
+    <header class="section-header">
+      <h2>Category Grid</h2>
+      <p>Homepage categories in a two-row, four-column visual card grid.</p>
+    </header>
+
+    <div class="categories-grid">
+      {
+        categoryCards.map((card) => (
+          <article class="category-card" style={{ '--category-tint': card.tint }}>
+            <div class="category-image" aria-hidden="true"></div>
+            <div class="category-overlay" aria-hidden="true"></div>
+            <h3>{card.title}</h3>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="docs-section">
+    <header class="section-header">
+      <h2>App Download Promo</h2>
+      <p>Get the Gametime App panel with phone number capture and device visual stack.</p>
+    </header>
+
+    <article class="app-promo" aria-label="Get the Gametime App">
+      <div class="app-copy">
+        <h3>Get the Gametime App</h3>
+        <p>Text yourself a link to download the app and unlock better last-minute deals.</p>
+        <form class="app-form" action="#" method="post" onsubmit="event.preventDefault()">
+          <label class="sr-only" for="phone-input">Phone number</label>
+          <input id="phone-input" name="phone" type="tel" placeholder="Enter your phone number" />
+          <button type="submit" aria-label="Submit phone number">&rarr;</button>
+        </form>
+      </div>
+
+      <div class="app-devices" aria-hidden="true">
+        <div class="phone phone-back"></div>
+        <div class="phone phone-mid"></div>
+        <div class="phone phone-front"></div>
+      </div>
+    </article>
+  </section>
+</Layout>
+
+<style>
+  .docs-header {
+    max-width: 74ch;
+    margin-bottom: var(--spacing-10);
+  }
+
+  .docs-header h1 {
+    font-size: var(--font-size-700);
+    line-height: var(--line-height-tight);
+    color: var(--theme-light-text-default-primary);
+    margin-bottom: var(--spacing-03);
+  }
+
+  .docs-header p {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-250);
+  }
+
+  .docs-section {
+    margin-bottom: var(--spacing-10);
+  }
+
+  .section-header {
+    margin-bottom: var(--spacing-05);
+  }
+
+  .section-header h2 {
+    color: var(--theme-light-text-default-primary);
+    font-size: var(--font-size-500);
+    margin-bottom: var(--spacing-02);
+  }
+
+  .section-header p {
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-200);
+  }
+
+  .hero-stack,
+  .banner-stack {
+    display: grid;
+    gap: var(--spacing-05);
+  }
+
+  .hero-demo {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    background: var(--color-brand-gray-1000);
+    aspect-ratio: 16 / 5;
+    min-height: 280px;
+    overflow: hidden;
+    border-top: 1px solid var(--color-black-200);
+    border-bottom: 1px solid var(--color-black-200);
+  }
+
+  .hero-image {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 20% 20%, var(--color-brand-gray-500) 0%, transparent 52%),
+      radial-gradient(circle at 70% 70%, var(--color-brand-gray-700) 0%, transparent 52%),
+      linear-gradient(135deg, var(--color-brand-gray-900) 0%, var(--color-brand-gray-1000) 100%);
+  }
+
+  .hero-gradient {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 58%;
+    background: linear-gradient(
+      180deg,
+      var(--color-black-100) 0%,
+      var(--color-black-600) 45%,
+      var(--color-black-900) 100%
+    );
+    pointer-events: none;
+  }
+
+  .hero-content-wrap {
+    position: absolute;
+    inset: auto var(--spacing-08) var(--spacing-07) var(--spacing-08);
+    display: grid;
+    align-items: end;
+    gap: var(--spacing-05);
+  }
+
+  .hero-with-logo .hero-content-wrap {
+    grid-template-columns: auto 1fr;
+  }
+
+  .hero-logo {
+    width: 112px;
+    height: 112px;
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-white-300);
+    background: linear-gradient(145deg, var(--color-brand-gray-600) 0%, var(--color-brand-gray-800) 100%);
+    color: var(--color-white-700);
+    display: grid;
+    place-items: center;
+    font-size: var(--font-size-150);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+  }
+
+  .hero-content {
+    max-width: 820px;
+  }
+
+  .hero-breadcrumb {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: var(--spacing-02);
+  }
+
+  .hero-breadcrumb .separator {
+    color: var(--color-brand-gray-500);
+  }
+
+  .hero-content h3 {
+    color: var(--color-white-1000);
+    font-size: clamp(2rem, 3.2vw, 3.375rem);
+    line-height: 1.05;
+    font-weight: var(--font-weight-bold);
+    margin: 0;
+  }
+
+  .hero-favorite {
+    position: absolute;
+    top: var(--spacing-06);
+    right: var(--spacing-08);
+    width: 48px;
+    height: 48px;
+    border: 1px solid var(--color-white-300);
+    border-radius: var(--radius-circle);
+    background: var(--color-black-400);
+    color: var(--color-white-1000);
+    font-size: 1.45rem;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-standard);
+  }
+
+  .hero-favorite:hover {
+    background: var(--color-black-600);
+  }
+
+  .promo-banner {
+    position: relative;
+    display: grid;
+    align-items: center;
+    background: var(--theme-light-background-default-primary);
+    border: 1px solid var(--theme-light-border-default-subtle);
+    border-radius: var(--radius-m);
+    min-height: 44px;
+    padding: var(--spacing-03) var(--spacing-10) var(--spacing-03) var(--spacing-06);
+  }
+
+  .promo-banner p {
+    text-align: center;
+    margin: 0;
+    color: var(--theme-light-text-default-secondary);
+    font-size: var(--font-size-150);
+    line-height: var(--line-height-regular);
+  }
+
+  .promo-banner a {
+    margin-left: var(--spacing-02);
+    color: var(--theme-light-text-link-tertiary);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
+    transition: opacity var(--duration-fast) var(--ease-standard);
+  }
+
+  .promo-banner a:hover {
+    opacity: 0.75;
+  }
+
+  .promo-banner button {
+    position: absolute;
+    right: var(--spacing-03);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border: 0;
+    background: transparent;
+    color: var(--theme-light-text-default-secondary);
+    font-size: 1.25rem;
+    line-height: 1;
+    cursor: pointer;
+  }
+
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-04);
+  }
+
+  .category-card {
+    position: relative;
+    height: 200px;
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid var(--color-black-150);
+    background: var(--color-brand-gray-900);
+  }
+
+  .category-image,
+  .category-overlay {
+    position: absolute;
+    inset: 0;
+  }
+
+  .category-image {
+    background: radial-gradient(circle at 22% 18%, var(--color-white-200) 0%, transparent 38%),
+      radial-gradient(circle at 85% 70%, var(--color-black-400) 0%, transparent 40%),
+      linear-gradient(130deg, var(--color-brand-gray-300) 0%, var(--color-brand-gray-800) 100%);
+  }
+
+  .category-overlay {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--category-tint) 74%, transparent) 0%,
+      color-mix(in srgb, var(--category-tint) 42%, var(--color-setlist-black-700)) 58%,
+      var(--color-setlist-black-900) 100%
+    );
+  }
+
+  .category-card h3 {
+    position: absolute;
+    left: var(--spacing-04);
+    right: var(--spacing-04);
+    bottom: var(--spacing-04);
+    z-index: 1;
+    margin: 0;
+    color: var(--color-white-1000);
+    font-size: var(--font-size-300);
+    line-height: var(--line-height-tight);
+    font-weight: var(--font-weight-bold);
+  }
+
+  .app-promo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: var(--spacing-06);
+    align-items: center;
+    padding: var(--spacing-07);
+    border-radius: var(--radius-l);
+    background: linear-gradient(140deg, var(--color-brand-gray-900) 0%, var(--color-black-1000) 100%);
+    border: 1px solid var(--color-black-300);
+    overflow: hidden;
+  }
+
+  .app-copy h3 {
+    margin: 0 0 var(--spacing-02);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-550);
+    line-height: var(--line-height-tight);
+  }
+
+  .app-copy p {
+    margin: 0 0 var(--spacing-05);
+    color: var(--color-brand-gray-200);
+    font-size: var(--font-size-200);
+    max-width: 50ch;
+  }
+
+  .app-form {
+    display: flex;
+    align-items: stretch;
+    max-width: 420px;
+    background: var(--color-brand-gray-800);
+    border: 1px solid var(--color-brand-gray-600);
+    border-radius: var(--radius-pill);
+    overflow: hidden;
+  }
+
+  .app-form input {
+    flex: 1;
+    min-width: 0;
+    border: 0;
+    background: transparent;
+    color: var(--color-white-1000);
+    font-size: var(--font-size-200);
+    padding: var(--spacing-03) var(--spacing-04);
+  }
+
+  .app-form input::placeholder {
+    color: var(--color-brand-gray-300);
+  }
+
+  .app-form button {
+    width: 48px;
+    border: 0;
+    background: var(--theme-light-button-default-primary);
+    color: var(--theme-light-text-button-on-primary);
+    font-size: 1.15rem;
+    cursor: pointer;
+  }
+
+  .app-form button:hover {
+    background: var(--theme-light-button-default-primary-hover);
+  }
+
+  .app-form input:focus,
+  .app-form button:focus {
+    outline: none;
+  }
+
+  .app-devices {
+    position: relative;
+    height: 250px;
+  }
+
+  .phone {
+    position: absolute;
+    width: 140px;
+    height: 230px;
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-white-300);
+    background: linear-gradient(160deg, var(--color-brand-gray-500) 0%, var(--color-brand-gray-900) 100%);
+    box-shadow: var(--elevation-2);
+  }
+
+  .phone-back {
+    right: 170px;
+    top: 16px;
+    opacity: 0.58;
+  }
+
+  .phone-mid {
+    right: 92px;
+    top: 8px;
+    opacity: 0.76;
+  }
+
+  .phone-front {
+    right: 12px;
+    top: 0;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 1200px) {
+    .categories-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .app-promo {
+      grid-template-columns: 1fr;
+    }
+
+    .app-devices {
+      height: 210px;
+    }
+
+    .phone {
+      width: 124px;
+      height: 200px;
+    }
+
+    .phone-back {
+      right: 168px;
+      top: 10px;
+    }
+
+    .phone-mid {
+      right: 90px;
+      top: 4px;
+    }
+
+    .phone-front {
+      right: 14px;
+      top: 0;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .hero-demo {
+      min-height: 320px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .hero-content-wrap {
+      inset: auto var(--spacing-05) var(--spacing-05) var(--spacing-05);
+      gap: var(--spacing-03);
+    }
+
+    .hero-with-logo .hero-content-wrap {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-logo {
+      width: 88px;
+      height: 88px;
+    }
+
+    .hero-favorite {
+      top: var(--spacing-04);
+      right: var(--spacing-05);
+      width: 44px;
+      height: 44px;
+    }
+  }
+
+  @media (max-width: 680px) {
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .promo-banner {
+      padding-inline: var(--spacing-04) var(--spacing-08);
+    }
+
+    .promo-banner p {
+      text-align: left;
+      padding-right: var(--spacing-03);
+    }
+  }
+</style>

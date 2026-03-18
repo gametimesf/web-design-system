@@ -1,0 +1,427 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tagVariants = [
+  {
+    label: 'Brand Green',
+    className: 'variant-green',
+    sample: 'ON SALE',
+  },
+  {
+    label: 'Danger Red',
+    className: 'variant-red',
+    sample: 'LOW STOCK',
+  },
+  {
+    label: 'Warning Yellow',
+    className: 'variant-yellow',
+    sample: 'LIMITED',
+  },
+  {
+    label: 'Blue',
+    className: 'variant-blue',
+    sample: 'NEW',
+  },
+  {
+    label: 'Gray',
+    className: 'variant-gray',
+    sample: 'STANDARD',
+  },
+];
+---
+
+<Layout title="tags & badges | Gametime Design System" description="Tag, label, and badge patterns.">
+  <div class="tags-page">
+    <section class="hero">
+      <p class="eyebrow">Components</p>
+      <h1>Tags &amp; Badges</h1>
+      <p class="lead">
+        This page documents every label, badge, and tag pattern used across
+        gametime.co, including the Tag component, urgency badges, deal tags, and
+        promo tags.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Tag Component</h2>
+        <p>
+          Three types with themeable background, text color, and border color. Use
+          default for standard labels, event for high-energy flags, and disclosure
+          for legal or informational labels.
+        </p>
+      </div>
+
+      <div class="type-grid">
+        <div class="type-card">
+          <div class="type-title">Default</div>
+          <div class="tag-row">
+            {tagVariants.map((variant) => (
+              <div class={`tag type-default ${variant.className}`}>
+                {variant.sample}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="type-card">
+          <div class="type-title">Event</div>
+          <div class="tag-row">
+            {tagVariants.map((variant) => (
+              <div class={`tag type-event ${variant.className}`}>
+                {variant.sample}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="type-card">
+          <div class="type-title">Disclosure</div>
+          <div class="tag-row">
+            {tagVariants.map((variant) => (
+              <div class={`tag type-disclosure ${variant.className}`}>
+                {variant.sample}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Urgency Badges</h2>
+        <p>
+          Pill badges shown on collection cards and event rows. These match the
+          four variants in the UrgencyBadge component.
+        </p>
+      </div>
+
+      <div class="badge-grid">
+        <div class="urgency-badge badge-last-call">
+          <span class="badge-icon">⏱</span>
+          <span>LAST CALL</span>
+        </div>
+        <div class="urgency-badge badge-top-event">
+          <span class="badge-icon">🔥</span>
+          <span>TOP EVENT</span>
+        </div>
+        <div class="urgency-badge badge-gt-deals">
+          <span class="badge-icon">★</span>
+          <span>DEALS AVAILABLE</span>
+        </div>
+        <div class="urgency-badge badge-zone-deals">
+          <span class="badge-icon">★</span>
+          <span>ZONE DEALS</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Deal Tags</h2>
+        <p>Used on event detail pages to highlight value tiers and fee handling.</p>
+      </div>
+
+      <div class="deal-grid">
+        <div class="deal-tag deal-super">SUPER DEAL</div>
+        <div class="deal-tag deal-amazing">AMAZING DEAL</div>
+        <div class="deal-tag deal-cheapest">CHEAPEST</div>
+        <div class="deal-tag deal-top">TOP 1% VALUE</div>
+        <div class="deal-tag deal-fees">Includes Fees</div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Promo Tags</h2>
+        <p>
+          Custom emoji + text tags used on collection cards and curated shelves.
+        </p>
+      </div>
+
+      <div class="promo-grid">
+        <div class="promo-tag">🎉 2026 YANKEES CALENDAR</div>
+        <div class="promo-tag">🏆 Round 1</div>
+        <div class="promo-tag">🎶 Weekend Rush</div>
+        <div class="promo-tag">🔥 Best Seats</div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  :global(body) {
+    color: var(--theme-light-text-default-primary);
+  }
+
+  .tags-page {
+    --tag-font-small: 10px;
+    --tag-pad-disclosure-y: 3px;
+    --tag-pad-disclosure-x: 7px;
+    --badge-icon-size: 18px;
+    --font-weight-extra-bold: 800;
+    --letter-spacing-eyebrow: 0.12em;
+    --letter-spacing-tag: 0.02em;
+    --border-thin: 1px;
+    --measure-hero: 640px;
+    --measure-section: 720px;
+    --badge-min: 180px;
+  }
+
+  .hero {
+    margin-bottom: var(--spacing-10);
+  }
+
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: var(--letter-spacing-eyebrow);
+    font-size: var(--font-size-100);
+    color: var(--theme-light-text-default-tertiary);
+    margin-bottom: var(--spacing-03);
+  }
+
+  h1 {
+    font-size: var(--font-size-700);
+    margin-bottom: var(--spacing-04);
+  }
+
+  .lead {
+    max-width: var(--measure-hero);
+    font-size: var(--font-size-400);
+    color: var(--theme-light-text-default-secondary);
+  }
+
+  .section {
+    margin-bottom: var(--spacing-11);
+  }
+
+  .section-header {
+    display: grid;
+    gap: var(--spacing-03);
+    margin-bottom: var(--spacing-06);
+  }
+
+  .section-header h2 {
+    font-size: var(--font-size-500);
+  }
+
+  .section-header p {
+    color: var(--theme-light-text-default-secondary);
+    max-width: var(--measure-section);
+  }
+
+  .type-grid {
+    display: grid;
+    gap: var(--spacing-06);
+  }
+
+  .type-card {
+    background: var(--theme-light-background-default-primary);
+    border: var(--border-thin) solid var(--theme-light-border-default-secondary);
+    border-radius: var(--radius-m);
+    padding: var(--spacing-06);
+    box-shadow: var(--elevation-1);
+  }
+
+  .type-title {
+    font-size: var(--font-size-300);
+    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--spacing-04);
+  }
+
+  .tag-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-03);
+  }
+
+  .tag {
+    --tag-bg: var(--theme-light-background-default-secondary);
+    --tag-color: var(--theme-light-text-default-primary);
+    --tag-border: var(--theme-light-border-default-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    border: var(--border-thin) solid var(--tag-border);
+    background: var(--tag-bg);
+    color: var(--tag-color);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-tag);
+  }
+
+  .type-default {
+    padding: var(--spacing-02) var(--spacing-04);
+    font-size: var(--font-size-200);
+  }
+
+  .type-event {
+    padding: var(--spacing-02) var(--spacing-03);
+    font-size: var(--tag-font-small);
+    font-weight: var(--font-weight-extra-bold);
+    text-transform: uppercase;
+  }
+
+  .type-disclosure {
+    padding: var(--tag-pad-disclosure-y) var(--tag-pad-disclosure-x);
+    font-size: var(--tag-font-small);
+  }
+
+  .variant-green {
+    --tag-bg: var(--theme-light-background-brand-secondary);
+    --tag-color: var(--theme-light-text-brand-strong);
+    --tag-border: var(--theme-light-border-brand-default);
+  }
+
+  .variant-red {
+    --tag-bg: var(--theme-light-background-danger-primary);
+    --tag-color: var(--theme-light-text-danger-secondary);
+    --tag-border: var(--theme-light-border-danger-secondary);
+  }
+
+  .variant-yellow {
+    --tag-bg: var(--theme-light-background-warning-secondary);
+    --tag-color: var(--theme-light-text-warning-primary);
+    --tag-border: var(--theme-light-border-warning-primary);
+  }
+
+  .variant-blue {
+    --tag-bg: var(--color-blue-100);
+    --tag-color: var(--color-blue-800);
+    --tag-border: var(--color-blue-300);
+  }
+
+  .variant-gray {
+    --tag-bg: var(--theme-light-background-default-tertiary);
+    --tag-color: var(--theme-light-text-default-secondary);
+    --tag-border: var(--theme-light-border-default-secondary);
+  }
+
+  .badge-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--badge-min), 1fr));
+    gap: var(--spacing-04);
+  }
+
+  .urgency-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    border-radius: var(--radius-full);
+    padding: var(--spacing-02) var(--spacing-04);
+    font-weight: var(--font-weight-semibold);
+    letter-spacing: var(--letter-spacing-tag);
+    font-size: var(--font-size-200);
+    border: var(--border-thin) solid transparent;
+  }
+
+  .badge-icon {
+    width: var(--badge-icon-size);
+    height: var(--badge-icon-size);
+    display: grid;
+    place-items: center;
+    border-radius: var(--radius-s);
+    background: var(--color-white-1000);
+    color: var(--color-brand-gray-900);
+    font-size: var(--font-size-100);
+  }
+
+  .badge-last-call {
+    background: var(--color-brand-green-400);
+    color: var(--color-setlist-black-1000);
+  }
+
+  .badge-top-event {
+    background: var(--color-red-300);
+    color: var(--color-red-900);
+  }
+
+  .badge-gt-deals {
+    background: var(--color-brand-green-300);
+    color: var(--color-brand-green-900);
+  }
+
+  .badge-zone-deals {
+    background: var(--color-purple-400);
+    color: var(--color-white-1000);
+  }
+
+  .badge-zone-deals .badge-icon {
+    background: var(--color-white-1000);
+    color: var(--color-purple-700);
+  }
+
+  .deal-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-03);
+  }
+
+  .deal-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    padding: var(--spacing-02) var(--spacing-04);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  .deal-super,
+  .deal-amazing {
+    background: var(--color-yellow-300);
+    color: var(--color-brand-gray-900);
+  }
+
+  .deal-amazing {
+    background: var(--color-yellow-200);
+  }
+
+  .deal-cheapest {
+    background: var(--color-red-500);
+    color: var(--color-white-1000);
+  }
+
+  .deal-top {
+    background: var(--color-brand-gray-900);
+    color: var(--color-white-1000);
+    font-size: var(--font-size-100);
+    text-transform: uppercase;
+  }
+
+  .deal-fees {
+    background: var(--theme-light-background-default-secondary);
+    color: var(--theme-light-text-default-tertiary);
+    font-size: var(--tag-font-small);
+    padding: var(--spacing-02) var(--spacing-03);
+  }
+
+  .promo-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-03);
+  }
+
+  .promo-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    padding: var(--spacing-02) var(--spacing-04);
+    border-radius: var(--radius-full);
+    border: var(--border-thin) solid var(--theme-light-border-default-secondary);
+    background: var(--theme-light-background-default-primary);
+    font-size: var(--font-size-200);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  @media (max-width: 720px) {
+    .badge-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .type-card {
+      padding: var(--spacing-05);
+    }
+  }
+</style>

@@ -1,0 +1,525 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const variants = [
+  {
+    id: 'tiny-card',
+    width: '200px (218px at desktop breakpoint)',
+    useCase: 'Compact content grids, such as concert discovery rails.',
+    title: 'Tiny Card Rail',
+    cardType: 'event',
+  },
+  {
+    id: 'teams-nearby',
+    width: '248px on mobile; content-driven width on desktop rail',
+    useCase:
+      'Nearby teams/performers; mobile uses a 3-row column-flow grid for dense scanning.',
+    title: 'Teams Nearby',
+    cardType: 'team',
+  },
+  {
+    id: 'col-3',
+    width: '304px base; 33% fill on desktop with gap offset',
+    useCase: 'Standard three-column carousel for event and listing cards.',
+    title: 'Three-Up Rail',
+    cardType: 'event',
+  },
+  {
+    id: 'col-3-sneak-peek',
+    width: '304px base; 33% fill with a partial 4th item on desktop',
+    useCase: 'Three-column rail that hints scrollability with a sneak-peek card.',
+    title: 'Three-Up Sneak Peek',
+    cardType: 'event',
+  },
+  {
+    id: 'col-4',
+    width: '304px base; 25% fill on desktop',
+    useCase: 'Four-column layout for dense browsing on wider screens.',
+    title: 'Four-Up Rail',
+    cardType: 'event',
+  },
+];
+
+const eventCards = [
+  { label: 'Sat • 7:30 PM', title: 'Arena Event', meta: 'Downtown Venue' },
+  { label: 'Sun • 8:00 PM', title: 'Championship Match', meta: 'City Fieldhouse' },
+  { label: 'Tue • 6:15 PM', title: 'Live Concert', meta: 'River Pavilion' },
+  { label: 'Fri • 9:00 PM', title: 'Festival Night', meta: 'Open Air Park' },
+  { label: 'Thu • 7:00 PM', title: 'Comedy Tour', meta: 'Main Theater' },
+  { label: 'Mon • 5:45 PM', title: 'Rivalry Game', meta: 'West Arena' },
+];
+
+const teamCards = [
+  'New York Rangers',
+  'Boston Celtics',
+  'LA Dodgers',
+  'Chicago Bulls',
+  'Dallas Stars',
+  'Seattle Sounders',
+  'Miami Heat',
+  'Philadelphia Union',
+  'San Diego Padres',
+];
+---
+
+<Layout
+  title="carousel | Gametime Design System"
+  description="Carousel component documentation and visual variant demos."
+>
+  <article class="carousel-docs">
+    <header class="page-header">
+      <h1>Carousel</h1>
+      <p>
+        Production carousel variants with fixed-width card behavior, snap scrolling, and arrow
+        controls.
+      </p>
+    </header>
+
+    <section class="spec-section">
+      <h2>Variant Specs</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Variant</th>
+            <th>Item Width</th>
+            <th>Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          {variants.map((variant) => (
+            <tr>
+              <td><code>{variant.id}</code></td>
+              <td>{variant.width}</td>
+              <td>{variant.useCase}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+
+    {variants.map((variant) => (
+      <section class="variant-section">
+        <h2>
+          <code>{variant.id}</code>
+        </h2>
+
+        <section class="section-block" data-carousel={variant.id}>
+          <header class="carousel-header-container">
+            <div class="carousel-header-left">
+              <h3 class="carousel-title">{variant.title}</h3>
+              <a class="see-all-link" href="#" aria-label={`See all for ${variant.id}`}>
+                <span>See All</span>
+                <span aria-hidden="true">›</span>
+              </a>
+            </div>
+
+            <div class="carousel-arrows" aria-label="Carousel controls">
+              <button class="arrow arrow-left" type="button" data-prev aria-label="Previous items">
+                <span aria-hidden="true">←</span>
+              </button>
+              <button class="arrow arrow-right" type="button" data-next aria-label="Next items">
+                <span aria-hidden="true">→</span>
+              </button>
+            </div>
+          </header>
+
+          <ul class={`list-carousel variant-${variant.id}`} data-track>
+            {variant.cardType === 'team'
+              ? teamCards.map((name, index) => (
+                  <li>
+                    <article class="team-card">
+                      <div class="team-avatar" style={`--chip-hue:${(index * 37) % 360};`} />
+                      <div class="team-copy">
+                        <p class="team-name">{name}</p>
+                        <p class="team-meta">{10 + index} events nearby</p>
+                      </div>
+                    </article>
+                  </li>
+                ))
+              : eventCards.map((item, index) => (
+                  <li>
+                    <article class="event-card">
+                      <div class="event-media" style={`--card-hue:${(index * 43) % 360};`} />
+                      <div class="event-copy">
+                        <p class="event-label">{item.label}</p>
+                        <p class="event-title">{item.title}</p>
+                        <p class="event-meta">{item.meta}</p>
+                      </div>
+                    </article>
+                  </li>
+                ))}
+          </ul>
+        </section>
+      </section>
+    ))}
+  </article>
+</Layout>
+
+<script>
+  const carousels = document.querySelectorAll('[data-carousel]');
+
+  const syncButtons = (track, prev, next) => {
+    const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft >= maxScroll - 2;
+  };
+
+  carousels.forEach((root) => {
+    const track = root.querySelector('[data-track]');
+    const prev = root.querySelector('[data-prev]');
+    const next = root.querySelector('[data-next]');
+
+    if (!track || !prev || !next) return;
+
+    const getStep = () => {
+      const first = track.querySelector('li');
+      if (!first) return 0;
+      const style = window.getComputedStyle(track);
+      const gap = Number.parseFloat(style.columnGap || style.gap || '0') || 0;
+      return first.getBoundingClientRect().width + gap;
+    };
+
+    prev.addEventListener('click', () => {
+      track.scrollBy({ left: -getStep(), behavior: 'smooth' });
+    });
+
+    next.addEventListener('click', () => {
+      track.scrollBy({ left: getStep(), behavior: 'smooth' });
+    });
+
+    track.addEventListener('scroll', () => syncButtons(track, prev, next), { passive: true });
+    window.addEventListener('resize', () => syncButtons(track, prev, next));
+    syncButtons(track, prev, next);
+  });
+</script>
+
+<style>
+  .carousel-docs {
+    display: grid;
+    gap: var(--spacing-10);
+    max-width: 1280px;
+  }
+
+  .page-header {
+    display: grid;
+    gap: var(--spacing-04);
+  }
+
+  .page-header h1 {
+    font-size: var(--font-size-700);
+    line-height: var(--line-height-200);
+    letter-spacing: -0.02em;
+    color: var(--color-brand-gray-900);
+  }
+
+  .page-header p {
+    max-width: 70ch;
+    color: var(--theme-text-secondary);
+  }
+
+  .spec-section {
+    background: var(--color-white-1000);
+    border: 1px solid var(--theme-border-primary);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-06);
+    box-shadow: var(--elevation-1);
+  }
+
+  .spec-section h2 {
+    font-size: var(--font-size-500);
+    margin-bottom: var(--spacing-05);
+    color: var(--color-brand-gray-900);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: var(--font-size-200);
+  }
+
+  th,
+  td {
+    border-bottom: 1px solid var(--theme-border-primary);
+    padding: var(--spacing-04);
+    vertical-align: top;
+    text-align: left;
+  }
+
+  th {
+    color: var(--theme-text-secondary);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-100);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  td code,
+  .variant-section h2 code {
+    font-family: var(--font-family-mono);
+    font-size: 0.9em;
+    background: var(--color-brand-gray-100);
+    color: var(--color-brand-gray-800);
+    padding: var(--spacing-01) var(--spacing-03);
+    border-radius: var(--radius-s);
+  }
+
+  .variant-section {
+    display: grid;
+    gap: var(--spacing-05);
+  }
+
+  .section-block {
+    --carousel-gap: var(--spacing-05);
+    --carousel-item-width: auto;
+
+    background: linear-gradient(
+      160deg,
+      var(--color-brand-gray-900) 0%,
+      var(--color-brand-gray-800) 100%
+    );
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--color-brand-gray-700);
+    box-shadow: var(--elevation-2);
+    padding: var(--spacing-06);
+    overflow: hidden;
+  }
+
+  .carousel-header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--spacing-05);
+    margin-bottom: var(--spacing-05);
+  }
+
+  .carousel-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-04);
+    min-width: 0;
+  }
+
+  .carousel-title {
+    color: var(--color-white-1000);
+    font-size: var(--font-size-500);
+    line-height: var(--line-height-200);
+    white-space: nowrap;
+  }
+
+  .see-all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-02);
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-100);
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .see-all-link:hover {
+    color: var(--color-brand-gray-100);
+  }
+
+  .carousel-arrows {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-03);
+  }
+
+  .arrow {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-brand-gray-700);
+    color: var(--color-white-1000);
+    box-shadow: var(--elevation-1);
+    cursor: pointer;
+    transition: background var(--duration-fast) var(--ease-standard),
+      opacity var(--duration-fast) var(--ease-standard);
+  }
+
+  .arrow:hover:not(:disabled) {
+    background: var(--color-brand-gray-600);
+  }
+
+  .arrow:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+
+  .list-carousel {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--carousel-gap);
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .list-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .list-carousel > li {
+    width: var(--carousel-item-width);
+    flex-shrink: 0;
+    scroll-snap-align: start;
+  }
+
+  .variant-tiny-card {
+    --carousel-item-width: 200px;
+  }
+
+  .variant-col-3,
+  .variant-col-3-sneak-peek,
+  .variant-col-4 {
+    --carousel-item-width: 304px;
+  }
+
+  .event-card {
+    border-radius: var(--radius-l);
+    overflow: hidden;
+    border: 1px solid var(--color-brand-gray-600);
+    background: var(--color-brand-gray-800);
+  }
+
+  .event-media {
+    height: 112px;
+    background: linear-gradient(
+      135deg,
+      hsl(var(--card-hue) 70% 55%) 0%,
+      hsl(calc(var(--card-hue) + 44) 72% 44%) 100%
+    );
+  }
+
+  .event-copy {
+    padding: var(--spacing-04);
+    display: grid;
+    gap: var(--spacing-02);
+  }
+
+  .event-label {
+    font-size: var(--font-size-100);
+    color: var(--color-brand-gray-300);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .event-title {
+    color: var(--color-white-1000);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-300);
+  }
+
+  .event-meta {
+    color: var(--color-brand-gray-200);
+    font-size: var(--font-size-200);
+  }
+
+  .variant-teams-nearby {
+    --carousel-item-width: 248px;
+  }
+
+  .team-card {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-04);
+    min-height: 84px;
+    border-radius: var(--radius-l);
+    border: 1px solid var(--color-brand-gray-600);
+    background: var(--color-brand-gray-800);
+    padding: var(--spacing-04);
+  }
+
+  .team-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: linear-gradient(
+      135deg,
+      hsl(var(--chip-hue) 68% 62%) 0%,
+      hsl(calc(var(--chip-hue) + 30) 65% 48%) 100%
+    );
+    flex-shrink: 0;
+  }
+
+  .team-copy {
+    display: grid;
+    gap: var(--spacing-01);
+    min-width: 0;
+  }
+
+  .team-name {
+    font-size: var(--font-size-300);
+    color: var(--color-white-1000);
+    font-weight: var(--font-weight-medium);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .team-meta {
+    color: var(--color-brand-gray-300);
+    font-size: var(--font-size-200);
+  }
+
+  @media (min-width: 900px) {
+    .variant-tiny-card {
+      --carousel-item-width: 218px;
+    }
+
+    .variant-col-3 {
+      --carousel-item-width: calc(33% - (var(--carousel-gap) / 2) - 1px);
+    }
+
+    .variant-col-3-sneak-peek {
+      --carousel-item-width: calc(33% - var(--spacing-08));
+    }
+
+    .variant-col-4 {
+      --carousel-item-width: calc(25% - (var(--carousel-gap) / 3) - 1px);
+    }
+
+    .variant-teams-nearby {
+      --carousel-item-width: 304px;
+      display: flex;
+    }
+  }
+
+  @media (max-width: 899px) {
+    .carousel-docs {
+      gap: var(--spacing-08);
+    }
+
+    .section-block {
+      padding: var(--spacing-05);
+    }
+
+    .carousel-header-container {
+      align-items: flex-start;
+    }
+
+    .carousel-header-left {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-02);
+    }
+
+    .variant-teams-nearby {
+      display: grid;
+      grid-auto-flow: column;
+      grid-template-rows: repeat(3, auto);
+    }
+  }
+</style>
